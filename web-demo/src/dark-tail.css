@@ -15,3 +15,32 @@ body.native-operator input,body.native-operator textarea,body.native-operator se
 body.native-operator .native-confirm input,body.native-operator .approval-card input[aria-label^="Confirmation"]{background:#0f1115!important;color:#fff!important;border-color:#ffe14d!important}
 .masthead::before{background:#0d0f13!important;border-bottom:1px solid #262a31}
 .collections-nav a:not([aria-current]){color:#c6cad1!important}
+
+/* Dark overrides for the shell and controls (the converter inverts ink-on-yellow pairs). */
+html body.native-operator .masthead::before{background:#0b0d11!important;border-bottom:1px solid #1c2028!important;box-shadow:none!important}
+html body.native-operator[data-desk-view] .collections-nav a[aria-current]{background:#ffe14d!important;color:#0f1217!important}
+html body.native-operator .collections-nav{background:rgba(255,255,255,.06)!important}
+html body.native-operator #journey-guide.journey-guide{background:rgba(255,225,77,.07)!important;border-color:rgba(255,225,77,.22)!important}
+html body.native-operator #journey-guide .journey-count{background:#ffe14d!important;color:#0f1217!important}
+html body.native-operator #journey-guide [data-journey-heading]{color:#f3f4f6!important}
+html body.native-operator #journey-guide [data-journey-detail]{color:#c9bb7c!important}
+html body.native-operator #journey-guide [data-journey-action]{background:rgba(255,255,255,.07)!important;color:#fff!important;border-color:rgba(255,255,255,.18)!important}
+html body.native-operator #journey-guide [data-journey-action]:hover{background:rgba(255,255,255,.14)!important}
+html body.native-operator #analyze-ai:not(:disabled),html body.native-operator #draft:not(:disabled),html body.native-operator #review-check:not(:disabled),html body.native-operator .button-approve:not(:disabled){background:#ffe14d!important;color:#0f1217!important;border-color:#ffe14d!important;box-shadow:0 1px 2px rgba(0,0,0,.4),0 8px 18px -6px rgba(255,225,77,.35)!important}
+html body.native-operator #analyze-ai:hover:not(:disabled),html body.native-operator #draft:hover:not(:disabled),html body.native-operator .button-approve:hover:not(:disabled){background:#ffe95f!important}
+html body.native-operator #analyze-ai::before{background:#0f1217!important;box-shadow:0 0 0 3px rgba(15,18,23,.18)!important}
+html body.native-operator #analyze:not(:disabled){background:rgba(255,255,255,.04)!important;color:#e8eaee!important;border:1px solid #333944!important;box-shadow:none!important}
+html body.native-operator .button:disabled,html body.native-operator #analyze:disabled,html body.native-operator #analyze-ai:disabled,html body.native-operator #draft:disabled,html body.native-operator #review-check:disabled,html body.native-operator .button-approve:disabled{background:#1a1e25!important;color:#5f6775!important;border:1px solid #252a33!important;box-shadow:none!important}
+html body.native-operator #analyze-ai:disabled::before{background:#3a404b!important;box-shadow:none!important}
+html body.native-operator #job-email{background:#171a20!important;border-color:#272c35!important;border-left:4px solid #e8b800!important;color:#d9dce3!important}
+html body.native-operator #job-email:focus{box-shadow:0 0 0 4px rgba(255,225,77,.22)!important;border-color:#e8b800!important}
+html body.native-operator .source-highlight mark,html body.native-operator mark{background:rgba(255,225,77,.22)!important;color:#fff3b8!important;box-shadow:none!important}
+html body.native-operator .native-analysis-activity{background:rgba(255,225,77,.07)!important;border-color:rgba(255,225,77,.22)!important}
+html body.native-operator .native-analysis-activity p{color:#f3f4f6!important}
+html body.native-operator .native-analysis-activity .fine-print{color:#c9bb7c!important}
+html body.native-operator .native-confirm{background:#0f1217!important;border-color:#2a303a!important}
+html body.native-operator .native-confirm input{background:#0b0d11!important;color:#fff!important;border:1.5px dashed #4a5262!important}
+html body.native-operator .native-confirm input:focus{border:1.5px solid #ffe14d!important;box-shadow:0 0 0 4px rgba(255,225,77,.2)!important}
+html body.native-operator .approval-head .source-chip{background:#ffe14d!important;color:#0f1217!important}
+html body.native-operator .approval-card::before{background:#ffe14d!important}
+html body.native-operator .approval-outcome .status-chip.approved::before{background:#6ee7b0!important}
