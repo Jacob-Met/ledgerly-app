@@ -44,6 +44,7 @@ import './document-workspace.css';
 import {installFocusedDesk, showInvoiceDocument, showDeskView, preferredDeskView} from './focused-desk';
 import './saved-invoice.css';
 import './focused-desk.css';
+import './upgrade';
 const native=nativeConfig();
 const nativeIntakeIdentity=native?(native.workspace_id||native.token):'';
 const nativeIntakeKey=native?'ledgerly.native.intake.'+nativeIntakeIdentity:null;
@@ -439,6 +440,7 @@ function renderAnalysis(ex:any){
  if(native)rememberNativeIntake();
 }function renderState(state:any){
  latestSandboxState=state;
+ if(typeof window!=='undefined'&&typeof CustomEvent!=='undefined')window.dispatchEvent(new CustomEvent('ledgerly:state',{detail:state}));
  approvalNavigation.clearOutcome();
  if(native)renderNativeDecisions(state);
  invoiceRecords.update(state);
