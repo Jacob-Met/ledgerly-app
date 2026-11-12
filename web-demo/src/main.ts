@@ -39,6 +39,7 @@ import {WorkerClient, WorkerUnavailableError} from './worker-client';
 import {startOnDeviceSession, completeInvoicePrompt, type NativeSession} from './local-ai';
 import './ai-progress.css';
 import './invoice-document.css';
+import './overhaul.css';
 import './document-workspace.css';
 import {installFocusedDesk, showInvoiceDocument, showDeskView, preferredDeskView} from './focused-desk';
 import './saved-invoice.css';

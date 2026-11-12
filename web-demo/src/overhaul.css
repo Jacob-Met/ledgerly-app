@@ -1,0 +1,99 @@
+/* Visual pass: neutral desk, one accent colour, a consistent type scale and clear hierarchy for the
+   source, the proposed invoice and the typed confirmations. Layout and behaviour are unchanged. */
+:root{--o-paper:#f6f7f9;--o-white:#ffffff;--o-ink:#14171c;--o-muted:#5b6370;--o-line:#e3e6eb;--o-sun:#ffe14d;--o-sun-deep:#f2c800;--o-sun-soft:#fff6c9;--o-ok:#1f7a55;--o-ok-soft:#e3f4ea;--o-warn:#8a5a00;--o-radius:14px}
+body.native-operator{background:var(--o-paper);color:var(--o-ink)}
+body.native-operator .masthead{border-bottom:0}
+body.native-operator .collections-nav a{border-radius:999px;padding:9px 16px;font-weight:600;transition:background .15s}
+body.native-operator .collections-nav a[aria-current],body.native-operator .collections-nav a.active,body.native-operator .collections-nav a[data-active=true]{background:var(--o-sun);color:var(--o-ink)}
+body.native-operator .sandbox-badge{background:rgba(255,225,77,.16);color:var(--o-sun);border:1px solid rgba(255,225,77,.45);border-radius:999px;padding:3px 10px;font-weight:600;letter-spacing:.04em}
+body.native-operator .desk-toolbar{padding:30px 0 16px}
+body.native-operator .desk-toolbar h1{font-size:38px;font-weight:700;letter-spacing:-.045em}
+
+/* Next-step bar */
+body.native-operator #journey-guide.journey-guide{background:var(--o-ink);color:#fff;border:0;border-radius:var(--o-radius);padding:14px 16px 14px 18px;box-shadow:0 1px 2px rgba(20,23,28,.08);margin-bottom:22px}
+body.native-operator #journey-guide .journey-count{background:var(--o-sun);color:var(--o-ink);border-radius:999px;padding:4px 10px;font-weight:700;letter-spacing:.08em;align-self:center}
+body.native-operator #journey-guide [data-journey-heading]{color:#fff;font-size:16px}
+body.native-operator #journey-guide [data-journey-detail]{color:#c9ccd1;font-size:13px}
+body.native-operator #journey-guide [data-journey-action]{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:10px;font-weight:600;padding:10px 16px}
+body.native-operator #journey-guide [data-journey-action]:hover{background:var(--o-sun);border-color:var(--o-sun);color:var(--o-ink)}
+
+/* Work surface: two cards instead of one ruled box */
+body.native-operator .workflow{border:0;background:transparent;gap:26px}
+body.native-operator .workflow>.panel{background:var(--o-white);border:1px solid var(--o-line);border-radius:var(--o-radius);box-shadow:0 1px 2px rgba(20,23,28,.04),0 8px 24px rgba(20,23,28,.06);padding:26px}
+body.native-operator .workflow>.intake{border-top:1px solid var(--o-line);border-right:1px solid var(--o-line);min-height:0}
+body.native-operator .intake>summary{font-size:19px;font-weight:700;letter-spacing:-.02em}
+body.native-operator .intake>summary span{font-weight:400;color:var(--o-muted)}
+body.native-operator #job-email{background:#fafbfc;border:1px solid var(--o-line);border-radius:10px;padding:16px 18px;font:15px/1.7 "IBM Plex Sans",system-ui,sans-serif;color:#24272b;}
+body.native-operator #job-email:focus{outline:2px solid var(--o-ink);outline-offset:1px;border-color:var(--o-ink)}
+body.native-operator .button{border-radius:10px;font-weight:600}
+body.native-operator #analyze,body.native-operator #analyze-ai{min-height:48px;font-size:14px}
+body.native-operator #analyze{background:#fff;color:var(--o-ink);border:1px solid #c9ced6}
+body.native-operator #analyze-ai{background:var(--o-ink);color:#fff;border:1.5px solid var(--o-ink)}
+body.native-operator #analyze-ai::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--o-sun);margin-right:9px;vertical-align:1px}
+body.native-operator #analyze-ai:hover{background:#2a2f37}
+body.native-operator .native-model-note{font-size:12.5px}
+body.native-operator .native-analysis-activity{border:1px solid var(--o-line);border-left:5px solid var(--o-sun-deep);border-radius:10px;background:var(--o-sun-soft);padding:14px 16px}
+
+/* The invoice sheet */
+body.native-operator .workflow>.invoice-review{position:relative;padding:34px 38px 30px;overflow:hidden}
+body.native-operator .workflow>.invoice-review::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--o-sun)}
+body.native-operator .invoice-letterhead{align-items:center}
+body.native-operator .invoice-letterhead .document-title{font-size:52px;font-weight:700;letter-spacing:-.05em}
+body.native-operator .invoice-letterhead .document-state{background:var(--o-sun-soft);color:var(--o-warn);border:1px solid #ecd27a;border-radius:999px;padding:6px 14px;font:700 11px/1 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.09em}
+body.native-operator .document-kicker{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--o-muted);font-weight:600}
+body.native-operator .document-heading h3{font-size:26px;letter-spacing:-.03em}
+body.native-operator .document-amount{font:700 40px/1.1 "IBM Plex Sans",system-ui,sans-serif;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+body.native-operator .source-highlight mark,body.native-operator mark{background:#fff3b0;border-radius:4px;padding:2px 7px;box-shadow:inset 0 -2px 0 var(--o-sun-deep);color:var(--o-ink)}
+body.native-operator .source-highlight{cursor:pointer}
+body.native-operator .source-highlight:hover mark{background:var(--o-sun-deep)}
+body.native-operator .document-items th{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--o-muted);font-weight:600;padding-bottom:12px;border-bottom:2px solid var(--o-ink)}
+body.native-operator .document-items td{padding:20px 0;border-bottom:1px solid var(--o-line);font-size:15.5px}
+body.native-operator .document-items td:first-child .source-highlight{font-size:17px;font-weight:600}
+body.native-operator .document-items td:last-child{font:600 17px/1.3 "IBM Plex Sans",system-ui,sans-serif;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+body.native-operator .document-items small{color:var(--o-muted);font-size:12.5px}
+body.native-operator .document-note-text{font-size:15.5px}
+body.native-operator .source-warnings{border:1px solid var(--o-line);border-radius:10px;padding:12px 16px;background:#fafbfc}
+body.native-operator .source-warnings .issue{border-radius:8px}
+body.native-operator .review-confirm{font-size:14px}
+body.native-operator #review-check{background:var(--o-ink);color:#fff;border-radius:10px;min-height:46px;padding:12px 22px;font-size:14px}
+body.native-operator #review-check:disabled{background:#c9c6bd;color:#fff}
+body.native-operator .review-totals{font-size:38px}
+
+/* Typed confirmations: the two human decisions */
+body.native-operator .native-confirm{background:#fafbfc;border:1px solid var(--o-line);border-left:4px solid var(--o-sun-deep);border-radius:12px;padding:14px 18px;font-size:15px;font-weight:600;gap:14px;margin:18px 0 12px}
+body.native-operator .native-confirm input{background:#fff;border:1.5px solid var(--o-ink);border-radius:8px;padding:9px 12px;font:700 16px/1.2 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.14em;max-width:11rem}
+body.native-operator .native-confirm input:focus{outline:3px solid var(--o-sun-deep)}
+body.native-operator #draft{min-height:46px;padding:12px 24px;font-size:15px;border:1px solid var(--o-ink);background:var(--o-ink);color:#fff}
+body.native-operator #draft:disabled{background:#eef0f3;color:#9aa1ac;border-color:#e3e6eb}
+
+/* Decisions */
+body.native-operator .approval-card,body.native-operator .decision-document{background:var(--o-white);border:1px solid var(--o-line);border-left:1px solid var(--o-line);border-radius:var(--o-radius);box-shadow:0 1px 2px rgba(20,23,28,.04),0 8px 24px rgba(20,23,28,.06);padding:34px 40px;position:relative;overflow:hidden}
+body.native-operator .approval-card::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--o-sun)}
+body.native-operator .approval-card h3,body.native-operator .approval-summary{font-size:24px;letter-spacing:-.03em;line-height:1.25}
+body.native-operator .approval-card .approval-head span:first-child,body.native-operator .approval-head .mono{background:var(--o-ink);color:var(--o-sun);border-radius:6px;padding:4px 9px;letter-spacing:.1em}
+body.native-operator .approval-card input[aria-label^="Confirmation"]{background:#fff;border:1.5px solid var(--o-ink);border-radius:8px;padding:10px 12px;font:700 16px/1.2 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.1em;min-width:11rem}
+body.native-operator .approval-card input[aria-label^="Confirmation"]:focus{outline:3px solid var(--o-sun-deep)}
+body.native-operator .button-approve{background:var(--o-ink);color:#fff;border:1px solid var(--o-ink);min-height:46px;padding:11px 22px;font-size:15px}
+body.native-operator .button-approve:disabled{background:#eef0f3;color:#9aa1ac;border-color:#e3e6eb}
+body.native-operator .status-chip{border-radius:999px;padding:5px 12px;font-weight:700;letter-spacing:.08em}
+body.native-operator .decision-document-total{font:700 40px/1.1 "IBM Plex Sans",system-ui,sans-serif;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+body.native-operator .footer{opacity:.75}
+
+/* Overrides that must win over earlier per-view rules */
+html body.native-operator{background:var(--o-paper)!important}
+body.native-operator #journey-guide.journey-guide{background:#fff!important;color:var(--o-ink)!important;border:1px solid var(--o-line)!important;border-left:1px solid var(--o-line)!important;box-shadow:0 1px 2px rgba(20,23,28,.04)!important}
+body.native-operator #journey-guide [data-journey-heading]{color:var(--o-ink)!important}
+body.native-operator #journey-guide [data-journey-detail]{color:var(--o-muted)!important}
+body.native-operator #journey-guide [data-journey-action]{color:var(--o-ink)!important;border:1px solid #c9ced6!important;background:#fff!important}
+body.native-operator #journey-guide [data-journey-action]:hover{background:var(--o-ink)!important;color:#fff!important;border-color:var(--o-ink)!important}
+body.native-operator .workflow>.panel,body.native-operator .workflow>details.intake.panel{background:#fff!important;border:1px solid var(--o-line)!important;border-radius:var(--o-radius)!important}
+body.native-operator .workflow>.invoice-review{border-top:1px solid var(--o-line)!important}
+body.native-operator #analyze{background:#fff!important;color:var(--o-ink)!important;border:1px solid #c9ced6!important}
+body.native-operator #analyze:hover{background:#f3f4f6!important}
+body.native-operator #analyze-ai{background:var(--o-ink)!important;color:#fff!important}
+body.native-operator #job-email:focus{outline:2px solid var(--o-ink)!important;outline-offset:0!important;box-shadow:none!important}
+body.native-operator .document-amount,body.native-operator .document-amount *{font-family:"IBM Plex Sans",system-ui,sans-serif!important}
+body.native-operator .document-amount>*:first-child,body.native-operator .document-amount strong{font-weight:700;font-size:40px;letter-spacing:-.04em}
+body.native-operator .document-amount small,body.native-operator .document-amount span,body.native-operator .document-amount p{letter-spacing:0!important;font-size:13px!important;font-weight:400!important;color:var(--o-muted)}
+body.native-operator #review-check:disabled{background:#eef0f3!important;color:#9aa1ac!important;border:1px solid #e3e6eb!important}
+body.native-operator .document-items td:last-child,body.native-operator .document-items td:last-child *{font-family:"IBM Plex Sans",system-ui,sans-serif!important}

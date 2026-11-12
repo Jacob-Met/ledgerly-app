@@ -87,3 +87,7 @@ cd web-demo && npm test
 MIT. See [LICENSE](LICENSE). Third-party notices for the web interface are in `web-demo/THIRD_PARTY_NOTICES.md`.
 
 Source: <https://github.com/Jacob-Met/ledgerly-app>
+
+## Light and dark mode
+
+The interface follows the system colour scheme, and the round button in the bottom-right corner switches between light and dark. The second colour sheet is generated from the first with `tools/retheme.py`, so the two always share the same layout.
