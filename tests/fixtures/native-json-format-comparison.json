@@ -1,0 +1,3677 @@
+{
+  "question": "Does requesting single-line compact JSON preserve the complete native invoice contract and reduce usable analysis latency?",
+  "answer": "No. The first candidate calibration omitted the explicitly supplied customer name and email. The frozen course stopped after two requests; no timed invoice pairs or missing-price control ran.",
+  "adopted": false,
+  "request_count": 2,
+  "provider_request_count": 0,
+  "cost_interpretation": "Calibration is cold-baseline then warm-candidate and fails completeness; its timings are not a comparative speedup.",
+  "course": {
+    "state": "failed",
+    "started_at": "2026-11-11T21:55:29.223231+00:00",
+    "source_commit": "638f77bcd2cbcd16b8d7bb26fe67aae91b340863",
+    "plan_sha256": "d72c924f44941f921bc91e8d951f59d1a86568431e866c446991885254262005",
+    "model": "qwen2.5:7b",
+    "expected_model_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "context_length": 4096,
+    "cpu_affinity": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "phases": [
+      {
+        "name": "receive-portable-controller",
+        "seconds": 0.6154683220011066,
+        "exit_code": 0
+      }
+    ],
+    "requests": [
+      {
+        "case": "calibration",
+        "condition": "baseline",
+        "output": "/tmp/c84d-ledgerly-json-format-portable/model-course-0/calibration-baseline",
+        "caller_exit": 0,
+        "whole_seconds": 37.50853216900032,
+        "score": {
+          "complete_proposal": true,
+          "gaps": [],
+          "grounding_errors": []
+        },
+        "response": {
+          "status": 200,
+          "seconds": 37.27701880599852,
+          "body_bytes": 4755,
+          "completed_at": "2026-11-11T21:57:31.639255+00:00",
+          "model_metadata": {
+            "model": "qwen2.5:7b",
+            "created_at": "2026-11-11T21:57:31.622709392Z",
+            "done": true,
+            "done_reason": "stop",
+            "total_duration": 37259177130,
+            "load_duration": 6076605729,
+            "prompt_eval_count": 720,
+            "prompt_eval_cached_count": 0,
+            "prompt_eval_duration": 10694914000,
+            "eval_count": 118,
+            "eval_duration": 20479073000
+          }
+        },
+        "finished_at": "2026-11-11T21:57:31.687718+00:00"
+      },
+      {
+        "case": "calibration",
+        "condition": "compact_json",
+        "output": "/tmp/c84d-ledgerly-json-format-portable/model-course-0/calibration-json-format",
+        "caller_exit": 0,
+        "whole_seconds": 24.184808093001266,
+        "score": {
+          "complete_proposal": false,
+          "gaps": [
+            "client_name",
+            "client_email",
+            "blocking_grounding_errors"
+          ],
+          "grounding_errors": [
+            {
+              "field": "client_email",
+              "severity": "error",
+              "message": "No client email found; PayPal needs a recipient email to send an invoice."
+            }
+          ]
+        },
+        "response": {
+          "status": 200,
+          "seconds": 24.05518408700118,
+          "body_bytes": 4865,
+          "completed_at": "2026-11-11T21:57:55.872776+00:00",
+          "model_metadata": {
+            "model": "qwen2.5:7b",
+            "created_at": "2026-11-11T21:57:55.86017039Z",
+            "done": true,
+            "done_reason": "stop",
+            "total_duration": 24041265589,
+            "load_duration": 3534557,
+            "prompt_eval_count": 733,
+            "prompt_eval_cached_count": 284,
+            "prompt_eval_duration": 5911798000,
+            "eval_count": 105,
+            "eval_duration": 18080470000
+          }
+        },
+        "finished_at": "2026-11-11T21:57:55.895750+00:00"
+      }
+    ],
+    "portable_controller_pid": 75352,
+    "controller_pid": 75503,
+    "portable_source_course": {
+      "source_commit": "638f77bcd2cbcd16b8d7bb26fe67aae91b340863",
+      "model": "qwen2.5:7b",
+      "expected_catalog_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+      "context_length": 4096,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "runtime_receiving_seconds": 8.545715390999248,
+      "cost_scope": "Transfer, digest verification, pinned blob acquisition, private runtime and actual Ledgerly model requests; no warmup.",
+      "verified_original_files": 56,
+      "acquisition_and_identity_seconds": 59.833879191999586,
+      "stage_complete_seconds": 67.46433778500068,
+      "controller_exit": 0,
+      "whole_seconds": 146.65641560099903
+    },
+    "verified_original_files": 56,
+    "materialization_policy": "RCLONE_LOCAL_NO_SET_MODTIME=true for this owned receiver; original content and executable modes are verified unchanged before serving.",
+    "model_before": {
+      "tags": {
+        "models": [
+          {
+            "name": "qwen2.5:7b",
+            "model": "qwen2.5:7b",
+            "modified_at": "2026-11-11T21:55:34.485792181Z",
+            "size": 4683087332,
+            "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "7.6B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 32768,
+              "embedding_length": 3584,
+              "runner": "ggml"
+            },
+            "capabilities": [
+              "completion",
+              "tools"
+            ]
+          }
+        ]
+      },
+      "ps": {
+        "models": []
+      },
+      "version": {
+        "version": "0.40.16"
+      }
+    },
+    "runtime_preparation": {
+      "files": 56,
+      "logicalBytes": 5562076575,
+      "copiedBytes": 5562076575,
+      "reflinkFiles": 0,
+      "wallSeconds": 12.132601727000292
+    },
+    "serving_ready_seconds": 84.95533159499973,
+    "model_after_first_cold_calibration": {
+      "models": [
+        {
+          "name": "qwen2.5:7b",
+          "model": "qwen2.5:7b",
+          "size": 5156624136,
+          "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen2",
+            "families": [
+              "qwen2"
+            ],
+            "parameter_size": "7.6B",
+            "quantization_level": "Q4_K_M"
+          },
+          "expires_at": "2319-02-21T21:44:48.492457457Z",
+          "size_vram": 4455934197,
+          "context_length": 4096,
+          "runner": "llamacpp"
+        }
+      ]
+    },
+    "error_type": "RuntimeError",
+    "error": "Calibration did not produce the expected grounded invoice",
+    "portable_controller_exit": 0,
+    "controller_exit": 0,
+    "controller_final_status": {
+      "operation": "c84d-json-format-portable-model-0",
+      "pid": 75503,
+      "model": "qwen2.5:7b",
+      "port": 11543,
+      "state": "stopped",
+      "runtimePreparation": {
+        "files": 56,
+        "logicalBytes": 5562076575,
+        "copiedBytes": 5562076575,
+        "reflinkFiles": 0,
+        "wallSeconds": 12.132601727000292
+      },
+      "child_pid": 75563,
+      "observed_model_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+      "expected_served_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+      "served_model_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+      "runtimeRemoved": true
+    },
+    "loopback_port_closed": true,
+    "whole_seconds": 147.33924876399942,
+    "finished_at": "2026-11-11T21:57:56.562639+00:00"
+  },
+  "source_receiving": {
+    "source_commit": "638f77bcd2cbcd16b8d7bb26fe67aae91b340863",
+    "base_commit": "5ba408bf5c6e5e5eef435e2e7fd76b637355b8c9",
+    "archive": "r2-estate:estate-archive/ledgerly/c84d/native-json-format/source-638f77bcd2cb.tar.gz",
+    "archive_bytes": 303361,
+    "archive_sha256": "a11c2c49cbe4df77ebcc88d715d9727884ab66af62a272ca40dd766ef0923311",
+    "plan_sha256": "d72c924f44941f921bc91e8d951f59d1a86568431e866c446991885254262005",
+    "course_sha256": "b89c73136ae54f1d60e5d3a43d2a7fe8ef3077b6775278f5ca9a3ba22bd7810d",
+    "frozen_before_model_requests": true,
+    "reason": "Compose the already-merged per-charge decision repair before the first model request; comparison plan and presentation-only condition are unchanged.",
+    "source_receiving_seconds": 0.9038816890006274,
+    "materialization": "Fresh local timestamps; unchanged verified source bytes and file modes"
+  },
+  "frozen_plan": {
+    "version": 3,
+    "purpose": "Same complete invoice contract, same native path and decoding schema; compare the existing JSON presentation with a single compact-format instruction.",
+    "frozen_before_inference": true,
+    "model": "qwen2.5:7b",
+    "conditions": [
+      "baseline",
+      "compact_json"
+    ],
+    "schedule": [
+      {
+        "case": "boreal",
+        "order": [
+          "baseline",
+          "compact_json"
+        ]
+      },
+      {
+        "case": "valence",
+        "order": [
+          "compact_json",
+          "baseline"
+        ]
+      },
+      {
+        "case": "maple",
+        "order": [
+          "baseline",
+          "compact_json"
+        ]
+      },
+      {
+        "case": "juniper",
+        "order": [
+          "compact_json",
+          "baseline"
+        ]
+      },
+      {
+        "case": "kestrel",
+        "order": [
+          "baseline",
+          "compact_json"
+        ]
+      },
+      {
+        "case": "juniper_field_school",
+        "order": [
+          "compact_json",
+          "baseline"
+        ]
+      }
+    ],
+    "decision": "Retain every first original request, complete raw response, native application and setup/cleanup cost. Run the missing-price control before the timed invoice pairs; if either condition loses its blocking errors, stop the comparison and address the actual invoice error. Adopt the formatting instruction only if every complete invoice retains all charges, recipient, currency, terms, reported payment, note where specified, and unchanged native grounding, with at least 20 percent lower matched mean and median native-analysis wall times. Any incomplete candidate prevents adoption. Report schema/body equality excluding only the one inserted presentation instruction. Calibration timings are separate because the first includes model loading. Six timed cases use balanced condition order. The five earlier messages are retained regression inputs, and Juniper Field School is an already observed audience input; none is called unseen.",
+    "calibration": {
+      "id": "calibration",
+      "source": "Bill to: Calibration Works <billing@calibrationworks.example>\nTwo icons at USD 15 per icon.\nNet 7.\n",
+      "expected": {
+        "client_name": "Calibration Works",
+        "client_email": "billing@calibrationworks.example",
+        "currency": "USD",
+        "due_days": 7,
+        "due_date": null,
+        "amount_paid": "0",
+        "total": "30",
+        "items": [
+          {
+            "description_any": [
+              "icon"
+            ],
+            "qty": "2",
+            "unit_price": "15",
+            "unit_allowed": [
+              null,
+              "icon",
+              "icons"
+            ]
+          }
+        ]
+      }
+    },
+    "cases": [
+      {
+        "id": "boreal",
+        "source": "From: Ada <ada@boreal.example>\nBill to: Boreal Studio <accounts@boreal.example>\nInvoice five display panels at GBP 64 per panel.\nThree hours of subtitle cleanup at GBP 36 per hour.\nThe agreed courier fee is GBP 19.\nThe agreed invoice total is GBP 447.\nNet 21.\n",
+        "expected": {
+          "client_name": "Boreal Studio",
+          "client_email": "accounts@boreal.example",
+          "currency": "GBP",
+          "due_days": 21,
+          "due_date": null,
+          "amount_paid": "0",
+          "total": "447",
+          "items": [
+            {
+              "description_any": [
+                "display",
+                "panel"
+              ],
+              "qty": "5",
+              "unit_price": "64",
+              "unit_allowed": [
+                null,
+                "panel",
+                "panels"
+              ]
+            },
+            {
+              "description_any": [
+                "subtitle",
+                "cleanup"
+              ],
+              "qty": "3",
+              "unit_price": "36",
+              "unit_allowed": [
+                "hour",
+                "hours",
+                "hr",
+                "hrs"
+              ]
+            },
+            {
+              "description_any": [
+                "courier"
+              ],
+              "qty": "1",
+              "unit_price": "19",
+              "unit_allowed": [
+                null,
+                "fee",
+                "flat fee",
+                "item",
+                "courier"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "valence",
+        "source": "From: Rosa <rosa@valence.example>\nBill to: Valence and Sons <billing@valence.example>\nTwo site visits at USD 175 per visit.\nThe agreed permit fee is USD 52.\nThe agreed reference photograph pack is a flat fee of USD 45.\nPayment is due on 2026-12-04.\n",
+        "expected": {
+          "client_name": "Valence and Sons",
+          "client_email": "billing@valence.example",
+          "currency": "USD",
+          "due_days": null,
+          "due_date": "2026-12-04",
+          "amount_paid": "0",
+          "total": "447",
+          "items": [
+            {
+              "description_any": [
+                "site",
+                "visit"
+              ],
+              "qty": "2",
+              "unit_price": "175",
+              "unit_allowed": [
+                null,
+                "visit",
+                "visits"
+              ]
+            },
+            {
+              "description_any": [
+                "permit"
+              ],
+              "qty": "1",
+              "unit_price": "52",
+              "unit_allowed": [
+                null,
+                "fee",
+                "flat fee",
+                "item"
+              ]
+            },
+            {
+              "description_any": [
+                "photograph",
+                "photo",
+                "reference"
+              ],
+              "qty": "1",
+              "unit_price": "45",
+              "unit_allowed": [
+                null,
+                "fee",
+                "flat fee",
+                "item",
+                "pack"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "maple",
+        "source": "From: Dylan <dylan@maple.example>\nBill to: Maple Community <accounts@maple.example>\nThree archive exports at CAD 47.50 per export.\nSix hours of label cleanup at CAD 26.00 per hour.\nThe agreed flat setup fee is CAD 11.50.\nDeposit paid: CAD 80.\nNet 14.\n",
+        "expected": {
+          "client_name": "Maple Community",
+          "client_email": "accounts@maple.example",
+          "currency": "CAD",
+          "due_days": 14,
+          "due_date": null,
+          "amount_paid": "80",
+          "total": "310.00",
+          "items": [
+            {
+              "description_any": [
+                "archive",
+                "export"
+              ],
+              "qty": "3",
+              "unit_price": "47.50",
+              "unit_allowed": [
+                null,
+                "export",
+                "exports"
+              ]
+            },
+            {
+              "description_any": [
+                "label",
+                "cleanup"
+              ],
+              "qty": "6",
+              "unit_price": "26.00",
+              "unit_allowed": [
+                "hour",
+                "hours",
+                "hr",
+                "hrs"
+              ]
+            },
+            {
+              "description_any": [
+                "setup"
+              ],
+              "qty": "1",
+              "unit_price": "11.50",
+              "unit_allowed": [
+                null,
+                "fee",
+                "flat fee",
+                "item"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "juniper",
+        "source": "From: Oona <editor@juniper.example>\nBill to: Juniper Books <accounts@juniper.example>\nSeven chapter proofs at EUR 35 per chapter.\nThe agreed cover layout fee is EUR 45.\nThe agreed postage fee is EUR 12.\nNet 7.\n> Earlier estimate: eight chapters for EUR 280; cover work still unconfirmed.\n",
+        "expected": {
+          "client_name": "Juniper Books",
+          "client_email": "accounts@juniper.example",
+          "currency": "EUR",
+          "due_days": 7,
+          "due_date": null,
+          "amount_paid": "0",
+          "total": "302",
+          "items": [
+            {
+              "description_any": [
+                "chapter",
+                "proof"
+              ],
+              "qty": "7",
+              "unit_price": "35",
+              "unit_allowed": [
+                null,
+                "chapter",
+                "chapters"
+              ]
+            },
+            {
+              "description_any": [
+                "cover",
+                "layout"
+              ],
+              "qty": "1",
+              "unit_price": "45",
+              "unit_allowed": [
+                null,
+                "fee",
+                "flat fee",
+                "item"
+              ]
+            },
+            {
+              "description_any": [
+                "postage"
+              ],
+              "qty": "1",
+              "unit_price": "12",
+              "unit_allowed": [
+                null,
+                "fee",
+                "flat fee",
+                "item"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "kestrel",
+        "source": "From: Ren <ren@kestrel.example>\nBill to: Kestrel Labs <finance@kestrel.example>\nNine dataset transfers at JPY 1600 per transfer.\nThe agreed handling fee is JPY 1800.\nThe agreed delivery fee is JPY 1200.\nPayment is due on receipt.\n",
+        "expected": {
+          "client_name": "Kestrel Labs",
+          "client_email": "finance@kestrel.example",
+          "currency": "JPY",
+          "due_days": 0,
+          "due_date": null,
+          "amount_paid": "0",
+          "total": "17400",
+          "items": [
+            {
+              "description_any": [
+                "dataset",
+                "transfer"
+              ],
+              "qty": "9",
+              "unit_price": "1600",
+              "unit_allowed": [
+                null,
+                "transfer",
+                "transfers"
+              ]
+            },
+            {
+              "description_any": [
+                "handling"
+              ],
+              "qty": "1",
+              "unit_price": "1800",
+              "unit_allowed": [
+                null,
+                "fee",
+                "flat fee",
+                "item"
+              ]
+            },
+            {
+              "description_any": [
+                "delivery"
+              ],
+              "qty": "1",
+              "unit_price": "1200",
+              "unit_allowed": [
+                null,
+                "fee",
+                "flat fee",
+                "item"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "juniper_field_school",
+        "source": "Please invoice Juniper Field School at accounts@juniper.example for six illustrated field cards at USD 42.50 each and two editing sessions at USD 85 each. Payment is due November 30, 2026. Please include purchase order JFS-204 on the invoice.",
+        "expected": {
+          "client_name": "Juniper Field School",
+          "client_email": "accounts@juniper.example",
+          "currency": "USD",
+          "due_days": null,
+          "due_date": "2026-11-30",
+          "amount_paid": "0",
+          "total": "425",
+          "note": "Purchase order JFS-204",
+          "items": [
+            {
+              "description_any": [
+                "illustrated",
+                "field card"
+              ],
+              "qty": "6",
+              "unit_price": "42.50",
+              "unit_allowed": [
+                null,
+                "card",
+                "cards",
+                "field card",
+                "field cards"
+              ]
+            },
+            {
+              "description_any": [
+                "editing"
+              ],
+              "qty": "2",
+              "unit_price": "85",
+              "unit_allowed": [
+                "session",
+                "sessions"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "previous_preflight": "Both earlier field-removal prompt reductions remain rejected. This comparison changes no output property, decoder constraint, source price choice, model setting or grounding code.",
+    "output_instruction": "Return compact JSON on one line, without indentation or extra whitespace.",
+    "controls": [
+      {
+        "id": "oak_missing_price",
+        "source": "From: Oak Vale Studio <accounts@oakvale.example>\n\nPlease invoice 2 x USD 120 portrait sessions and 3 x print sets. Payment due November 30, 2026.",
+        "expected": {
+          "blocked": true
+        }
+      }
+    ],
+    "control_schedule": [
+      {
+        "case": "oak_missing_price",
+        "order": [
+          "baseline",
+          "compact_json"
+        ]
+      }
+    ]
+  },
+  "original_trials": {
+    "calibration-baseline": {
+      "result": {
+        "case": "calibration",
+        "condition": "baseline",
+        "started_at": "2026-11-11T21:56:54.338169+00:00",
+        "source_commit": "638f77bcd2cbcd16b8d7bb26fe67aae91b340863",
+        "plan_sha256": "d72c924f44941f921bc91e8d951f59d1a86568431e866c446991885254262005",
+        "source": "Bill to: Calibration Works <billing@calibrationworks.example>\nTwo icons at USD 15 per icon.\nNet 7.\n",
+        "expected": {
+          "client_name": "Calibration Works",
+          "client_email": "billing@calibrationworks.example",
+          "currency": "USD",
+          "due_days": 7,
+          "due_date": null,
+          "amount_paid": "0",
+          "total": "30",
+          "items": [
+            {
+              "description_any": [
+                "icon"
+              ],
+              "qty": "2",
+              "unit_price": "15",
+              "unit_allowed": [
+                null,
+                "icon",
+                "icons"
+              ]
+            }
+          ]
+        },
+        "model": "qwen2.5:7b",
+        "state": "complete",
+        "provider": "Explicit synthetic provider; no provider action requested",
+        "rules": {
+          "seconds": 0.0034367190000921255,
+          "analysis": {
+            "client_name": "Calibration Works",
+            "client_email": "billing@calibrationworks.example",
+            "currency": "USD",
+            "line_items": [
+              {
+                "desc": "Icons",
+                "qty": "2",
+                "unit_price": "15",
+                "currency": "USD",
+                "unit": null
+              }
+            ],
+            "due_days": 7,
+            "amount_paid": "0",
+            "total": "30",
+            "confidence": 1.0,
+            "issues": [
+              {
+                "field": "client_email",
+                "severity": "info",
+                "message": "Using the explicit bill-to or invoice delivery instruction instead of the request sender."
+              }
+            ],
+            "source": "rules",
+            "note": "Thank you for your business."
+          },
+          "score": {
+            "complete_proposal": true,
+            "gaps": [],
+            "grounding_errors": []
+          },
+          "human_decision_required": false
+        },
+        "first": {
+          "ok": true,
+          "message": null,
+          "result": {
+            "analysis_job": {
+              "id": "calibration-baseline",
+              "state": "running",
+              "elapsed_seconds": 0.0,
+              "message": "",
+              "model_skipped_for_review": false,
+              "failure_kind": null
+            }
+          },
+          "state": {
+            "today": "2026-11-11",
+            "ledger": [],
+            "invoice_details": [],
+            "invoice_requests": [],
+            "pending": [],
+            "creation_attempts": [],
+            "decisions": [],
+            "completed_reviews": [],
+            "audit": [],
+            "mock_requests": 0,
+            "external_calls": 0,
+            "provider_operations": 0,
+            "can_replay": false,
+            "native_operator": true,
+            "provider": "Explicit synthetic provider",
+            "durable": true
+          }
+        },
+        "native_seconds": 37.30375011800061,
+        "native": {
+          "ok": true,
+          "message": null,
+          "result": {
+            "analysis_job": {
+              "id": "calibration-baseline",
+              "state": "ready",
+              "elapsed_seconds": 37.3,
+              "message": "",
+              "model_skipped_for_review": false,
+              "failure_kind": null
+            },
+            "analysis": {
+              "client_name": "Calibration Works",
+              "client_email": "billing@calibrationworks.example",
+              "currency": "USD",
+              "line_items": [
+                {
+                  "desc": "Two icons",
+                  "qty": "2",
+                  "unit_price": "15",
+                  "currency": "USD",
+                  "unit": "icon"
+                }
+              ],
+              "due_days": 7,
+              "amount_paid": "0",
+              "total": "30",
+              "confidence": 1.0,
+              "issues": [
+                {
+                  "field": "line_items[0].unit_price",
+                  "severity": "info",
+                  "message": "AI price is quoted with matching work wording on source line 2. Verify quantity and context manually."
+                }
+              ],
+              "source": "llm",
+              "note": "Thank you for your business.",
+              "source_references": {
+                "line_items": [
+                  {
+                    "qty": null
+                  }
+                ],
+                "payment_terms": {
+                  "text": "Net 7",
+                  "value": "7"
+                }
+              },
+              "review_currencies": [
+                "AUD",
+                "BRL",
+                "CAD",
+                "CHF",
+                "CNY",
+                "CZK",
+                "DKK",
+                "EUR",
+                "GBP",
+                "HKD",
+                "HUF",
+                "ILS",
+                "JPY",
+                "MXN",
+                "MYR",
+                "NOK",
+                "NZD",
+                "PHP",
+                "PLN",
+                "SEK",
+                "SGD",
+                "THB",
+                "TWD",
+                "USD"
+              ],
+              "totals_by_currency": [
+                {
+                  "currency": "USD",
+                  "total": "30"
+                }
+              ],
+              "financials_by_currency": [
+                {
+                  "currency": "USD",
+                  "total": "30",
+                  "paid": "0",
+                  "due": "30"
+                }
+              ],
+              "line_amounts": [
+                "30"
+              ],
+              "source_amount_requirements": []
+            }
+          },
+          "state": {
+            "today": "2026-11-11",
+            "ledger": [],
+            "invoice_details": [],
+            "invoice_requests": [],
+            "pending": [],
+            "creation_attempts": [],
+            "decisions": [],
+            "completed_reviews": [],
+            "audit": [],
+            "mock_requests": 0,
+            "external_calls": 0,
+            "provider_operations": 0,
+            "can_replay": false,
+            "native_operator": true,
+            "provider": "Explicit synthetic provider",
+            "durable": true
+          }
+        },
+        "request_count": 1,
+        "provider_request_count": 0,
+        "score": {
+          "complete_proposal": true,
+          "gaps": [],
+          "grounding_errors": []
+        },
+        "apply": {
+          "ok": true,
+          "message": null,
+          "result": {
+            "client_name": "Calibration Works",
+            "client_email": "billing@calibrationworks.example",
+            "currency": "USD",
+            "line_items": [
+              {
+                "desc": "Two icons",
+                "qty": "2",
+                "unit_price": "15",
+                "currency": "USD",
+                "unit": "icon"
+              }
+            ],
+            "due_days": 7,
+            "amount_paid": "0",
+            "total": "30",
+            "confidence": 1.0,
+            "issues": [
+              {
+                "field": "line_items[0].unit_price",
+                "severity": "info",
+                "message": "AI price is quoted with matching work wording on source line 2. Verify quantity and context manually."
+              }
+            ],
+            "source": "llm",
+            "note": "Thank you for your business.",
+            "source_references": {
+              "line_items": [
+                {
+                  "qty": null
+                }
+              ],
+              "payment_terms": {
+                "text": "Net 7",
+                "value": "7"
+              }
+            },
+            "review_currencies": [
+              "AUD",
+              "BRL",
+              "CAD",
+              "CHF",
+              "CNY",
+              "CZK",
+              "DKK",
+              "EUR",
+              "GBP",
+              "HKD",
+              "HUF",
+              "ILS",
+              "JPY",
+              "MXN",
+              "MYR",
+              "NOK",
+              "NZD",
+              "PHP",
+              "PLN",
+              "SEK",
+              "SGD",
+              "THB",
+              "TWD",
+              "USD"
+            ],
+            "totals_by_currency": [
+              {
+                "currency": "USD",
+                "total": "30"
+              }
+            ],
+            "financials_by_currency": [
+              {
+                "currency": "USD",
+                "total": "30",
+                "paid": "0",
+                "due": "30"
+              }
+            ],
+            "line_amounts": [
+              "30"
+            ],
+            "source_amount_requirements": []
+          },
+          "state": {
+            "today": "2026-11-11",
+            "ledger": [],
+            "invoice_details": [],
+            "invoice_requests": [],
+            "pending": [],
+            "creation_attempts": [],
+            "decisions": [],
+            "completed_reviews": [],
+            "audit": [],
+            "mock_requests": 0,
+            "external_calls": 0,
+            "provider_operations": 0,
+            "can_replay": false,
+            "native_operator": true,
+            "provider": "Explicit synthetic provider",
+            "durable": true
+          }
+        },
+        "response": {
+          "status": 200,
+          "seconds": 37.27701880599852,
+          "body_bytes": 4755,
+          "completed_at": "2026-11-11T21:57:31.639255+00:00",
+          "model_metadata": {
+            "model": "qwen2.5:7b",
+            "created_at": "2026-11-11T21:57:31.622709392Z",
+            "done": true,
+            "done_reason": "stop",
+            "total_duration": 37259177130,
+            "load_duration": 6076605729,
+            "prompt_eval_count": 720,
+            "prompt_eval_cached_count": 0,
+            "prompt_eval_duration": 10694914000,
+            "eval_count": 118,
+            "eval_duration": 20479073000
+          }
+        },
+        "finished_at": "2026-11-11T21:57:31.664755+00:00"
+      },
+      "request": {
+        "url": "http://127.0.0.1:11543/api/generate",
+        "timeout_seconds": 90,
+        "started_at": "2026-11-11T21:56:54.362010+00:00",
+        "body_bytes": 4510,
+        "body": {
+          "model": "qwen2.5:7b",
+          "prompt": "You extract invoice data from a freelancer's job email.\nReturn only one JSON object matching this JSON Schema:\n{\"type\":\"object\",\"properties\":{\"client_name\":{\"type\":[\"string\",\"null\"]},\"client_email\":{\"type\":[\"string\",\"null\"]},\"currency\":{\"type\":[\"string\",\"null\"]},\"line_items\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"desc\":{\"type\":\"string\"},\"qty\":{\"type\":[\"number\",\"null\"]},\"unit_price\":{\"type\":\"string\",\"enum\":[\"15\"]},\"currency\":{\"type\":[\"string\",\"null\"]},\"unit\":{\"type\":[\"string\",\"null\"]}},\"required\":[\"desc\",\"qty\",\"unit_price\",\"currency\",\"unit\"]}},\"due_days\":{\"type\":[\"integer\",\"null\"]},\"due_date\":{\"type\":[\"string\",\"null\"]},\"amount_paid\":{\"type\":\"number\"},\"confidence\":{\"type\":\"number\",\"minimum\":0,\"maximum\":1},\"issues\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"field\":{\"type\":\"string\"},\"severity\":{\"type\":\"string\",\"enum\":[\"error\",\"warning\",\"info\"]},\"message\":{\"type\":\"string\"}},\"required\":[\"field\",\"severity\",\"message\"]}}},\"required\":[\"client_name\",\"client_email\",\"currency\",\"line_items\",\"due_days\",\"due_date\",\"amount_paid\",\"confidence\",\"issues\"]}\nUse decimal strings for unit_price.\nRules: never invent an email address or price that is not in the text; use null and add an\nissue instead. Quoted earlier messages (lines starting with '>') are history, not scope.\nExtract the current client's name and email, including the current From header\nwhen it identifies the client; an explicit bill-to instruction takes priority.\nDo not omit an explicit recipient or use one from quoted earlier messages.\ndesc names the work; put counts, unit rates and currency in their separate fields.\nCopy each stated unit rate exactly; never divide a quoted hourly rate by the quantity.\nqty is the stated number of units, including number words. Do not use 1 for\nmultiple hours or hide the quantity only in desc. Use 1 only for a single flat fee.\nOmit optional or explicitly excluded work; it is not part of the agreed invoice.\nCopy the stated quantity unit (for example hours, pages or days) into unit; use null\nwhen no unit is stated. Never replace hours with a generic item count.\nThe counted unit is the noun being billed, not a duration or size modifier.\nDo not convert the length of a session into hours or days unless that is how it is priced.\nA flat fee has quantity 1 and its stated amount as unit_price. Do not calculate\nunit_price from a combined total.\nInclude every agreed separately priced service or fee, even on another line.\nCheck the entire email for work amounts missing from line_items before returning.\nTotals, prior payments and excluded work are not additional invoice items.\nIf a deposit/partial payment was already made, put it in amount_paid.\nOtherwise amount_paid is 0. A quoted fee is not a prior payment.\n\nNet N means due_days N. Copy explicit payment terms, including terms on the work line.\nCalendar deadlines use due_date (YYYY-MM-DD) and due_days null; relative terms use due_days and due_date null. Do not infer an absent or ambiguous calendar date.\n\nEMAIL:\n<<<\nBill to: Calibration Works <billing@calibrationworks.example>\nTwo icons at USD 15 per icon.\nNet 7.\n\n>>>",
+          "stream": false,
+          "format": {
+            "type": "object",
+            "properties": {
+              "client_name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "client_email": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "currency": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "line_items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "desc": {
+                      "type": "string"
+                    },
+                    "qty": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "unit_price": {
+                      "type": "string",
+                      "enum": [
+                        "15"
+                      ]
+                    },
+                    "currency": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "unit": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "desc",
+                    "qty",
+                    "unit_price",
+                    "currency",
+                    "unit"
+                  ]
+                }
+              },
+              "due_days": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "due_date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "amount_paid": {
+                "type": "number"
+              },
+              "confidence": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "issues": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "field": {
+                      "type": "string"
+                    },
+                    "severity": {
+                      "type": "string",
+                      "enum": [
+                        "error",
+                        "warning",
+                        "info"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "field",
+                    "severity",
+                    "message"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "client_name",
+              "client_email",
+              "currency",
+              "line_items",
+              "due_days",
+              "due_date",
+              "amount_paid",
+              "confidence",
+              "issues"
+            ]
+          },
+          "options": {
+            "temperature": 0
+          }
+        }
+      },
+      "request-before-formatting": {
+        "model": "qwen2.5:7b",
+        "prompt": "You extract invoice data from a freelancer's job email.\nReturn only one JSON object matching this JSON Schema:\n{\"type\":\"object\",\"properties\":{\"client_name\":{\"type\":[\"string\",\"null\"]},\"client_email\":{\"type\":[\"string\",\"null\"]},\"currency\":{\"type\":[\"string\",\"null\"]},\"line_items\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"desc\":{\"type\":\"string\"},\"qty\":{\"type\":[\"number\",\"null\"]},\"unit_price\":{\"type\":\"string\",\"enum\":[\"15\"]},\"currency\":{\"type\":[\"string\",\"null\"]},\"unit\":{\"type\":[\"string\",\"null\"]}},\"required\":[\"desc\",\"qty\",\"unit_price\",\"currency\",\"unit\"]}},\"due_days\":{\"type\":[\"integer\",\"null\"]},\"due_date\":{\"type\":[\"string\",\"null\"]},\"amount_paid\":{\"type\":\"number\"},\"confidence\":{\"type\":\"number\",\"minimum\":0,\"maximum\":1},\"issues\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"field\":{\"type\":\"string\"},\"severity\":{\"type\":\"string\",\"enum\":[\"error\",\"warning\",\"info\"]},\"message\":{\"type\":\"string\"}},\"required\":[\"field\",\"severity\",\"message\"]}}},\"required\":[\"client_name\",\"client_email\",\"currency\",\"line_items\",\"due_days\",\"due_date\",\"amount_paid\",\"confidence\",\"issues\"]}\nUse decimal strings for unit_price.\nRules: never invent an email address or price that is not in the text; use null and add an\nissue instead. Quoted earlier messages (lines starting with '>') are history, not scope.\nExtract the current client's name and email, including the current From header\nwhen it identifies the client; an explicit bill-to instruction takes priority.\nDo not omit an explicit recipient or use one from quoted earlier messages.\ndesc names the work; put counts, unit rates and currency in their separate fields.\nCopy each stated unit rate exactly; never divide a quoted hourly rate by the quantity.\nqty is the stated number of units, including number words. Do not use 1 for\nmultiple hours or hide the quantity only in desc. Use 1 only for a single flat fee.\nOmit optional or explicitly excluded work; it is not part of the agreed invoice.\nCopy the stated quantity unit (for example hours, pages or days) into unit; use null\nwhen no unit is stated. Never replace hours with a generic item count.\nThe counted unit is the noun being billed, not a duration or size modifier.\nDo not convert the length of a session into hours or days unless that is how it is priced.\nA flat fee has quantity 1 and its stated amount as unit_price. Do not calculate\nunit_price from a combined total.\nInclude every agreed separately priced service or fee, even on another line.\nCheck the entire email for work amounts missing from line_items before returning.\nTotals, prior payments and excluded work are not additional invoice items.\nIf a deposit/partial payment was already made, put it in amount_paid.\nOtherwise amount_paid is 0. A quoted fee is not a prior payment.\n\nNet N means due_days N. Copy explicit payment terms, including terms on the work line.\nCalendar deadlines use due_date (YYYY-MM-DD) and due_days null; relative terms use due_days and due_date null. Do not infer an absent or ambiguous calendar date.\n\nEMAIL:\n<<<\nBill to: Calibration Works <billing@calibrationworks.example>\nTwo icons at USD 15 per icon.\nNet 7.\n\n>>>",
+        "stream": false,
+        "format": {
+          "type": "object",
+          "properties": {
+            "client_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "client_email": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "currency": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "line_items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "desc": {
+                    "type": "string"
+                  },
+                  "qty": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "unit_price": {
+                    "type": "string",
+                    "enum": [
+                      "15"
+                    ]
+                  },
+                  "currency": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "unit": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "desc",
+                  "qty",
+                  "unit_price",
+                  "currency",
+                  "unit"
+                ]
+              }
+            },
+            "due_days": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "due_date": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "amount_paid": {
+              "type": "number"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "issues": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "type": "string",
+                    "enum": [
+                      "error",
+                      "warning",
+                      "info"
+                    ]
+                  },
+                  "message": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "field",
+                  "severity",
+                  "message"
+                ]
+              }
+            }
+          },
+          "required": [
+            "client_name",
+            "client_email",
+            "currency",
+            "line_items",
+            "due_days",
+            "due_date",
+            "amount_paid",
+            "confidence",
+            "issues"
+          ]
+        },
+        "options": {
+          "temperature": 0
+        }
+      },
+      "response": {
+        "status": 200,
+        "seconds": 37.27701880599852,
+        "body_bytes": 4755,
+        "completed_at": "2026-11-11T21:57:31.639255+00:00",
+        "model_metadata": {
+          "model": "qwen2.5:7b",
+          "created_at": "2026-11-11T21:57:31.622709392Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 37259177130,
+          "load_duration": 6076605729,
+          "prompt_eval_count": 720,
+          "prompt_eval_cached_count": 0,
+          "prompt_eval_duration": 10694914000,
+          "eval_count": 118,
+          "eval_duration": 20479073000
+        }
+      },
+      "response-body": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-11-11T21:57:31.622709392Z",
+        "response": "{\n  \"client_name\": \"Calibration Works\",\n  \"client_email\": \"billing@calibrationworks.example\",\n  \"currency\": \"USD\",\n  \"line_items\": [\n    {\n      \"desc\": \"Two icons\",\n      \"qty\": 2,\n      \"unit_price\": \"15\",\n      \"currency\": \"USD\",\n      \"unit\": \"icon\"\n    }\n  ],\n  \"due_days\": 7,\n  \"due_date\": null,\n  \"amount_paid\": 0,\n  \"confidence\": 1,\n  \"issues\": []\n}",
+        "done": true,
+        "done_reason": "stop",
+        "context": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11,
+          3465,
+          553,
+          54364,
+          14817,
+          13,
+          1446,
+          525,
+          264,
+          10950,
+          17847,
+          13,
+          151645,
+          198,
+          151644,
+          872,
+          198,
+          2610,
+          8649,
+          24615,
+          821,
+          504,
+          264,
+          92668,
+          594,
+          2618,
+          2551,
+          624,
+          5598,
+          1172,
+          825,
+          4718,
+          1633,
+          12579,
+          419,
+          4718,
+          12539,
+          510,
+          4913,
+          1313,
+          3252,
+          1700,
+          2198,
+          13193,
+          22317,
+          2972,
+          1269,
+          22317,
+          1313,
+          36799,
+          917,
+          2198,
+          2921,
+          1341,
+          51193,
+          2972,
+          9172,
+          22317,
+          1313,
+          36799,
+          917,
+          2198,
+          2921,
+          1341,
+          51193,
+          15973,
+          22317,
+          1313,
+          36799,
+          917,
+          2198,
+          2921,
+          1341,
+          51193,
+          1056,
+          12134,
+          22317,
+          1313,
+          3252,
+          1653,
+          2198,
+          3615,
+          22317,
+          1313,
+          3252,
+          1700,
+          2198,
+          13193,
+          22317,
+          8614,
+          22317,
+          1313,
+          3252,
+          917,
+          58640,
+          29303,
+          22317,
+          1313,
+          36799,
+          4082,
+          2198,
+          2921,
+          1341,
+          51193,
+          3843,
+          9040,
+          22317,
+          1313,
+          3252,
+          917,
+          2198,
+          9018,
+          36799,
+          16,
+          20,
+          1341,
+          51193,
+          15973,
+          22317,
+          1313,
+          36799,
+          917,
+          2198,
+          2921,
+          1341,
+          51193,
+          3843,
+          22317,
+          1313,
+          36799,
+          917,
+          2198,
+          2921,
+          1341,
+          3417,
+          1335,
+          6279,
+          36799,
+          8614,
+          2198,
+          29303,
+          2198,
+          3843,
+          9040,
+          2198,
+          15973,
+          2198,
+          3843,
+          1341,
+          3417,
+          1335,
+          23646,
+          28353,
+          22317,
+          1313,
+          36799,
+          11662,
+          2198,
+          2921,
+          1341,
+          51193,
+          23646,
+          4164,
+          22317,
+          1313,
+          36799,
+          917,
+          2198,
+          2921,
+          1341,
+          51193,
+          6045,
+          63207,
+          22317,
+          1313,
+          3252,
+          4082,
+          58640,
+          81929,
+          22317,
+          1313,
+          3252,
+          4082,
+          2198,
+          37988,
+          788,
+          15,
+          1335,
+          39187,
+          788,
+          16,
+          51193,
+          18427,
+          22317,
+          1313,
+          3252,
+          1653,
+          2198,
+          3615,
+          22317,
+          1313,
+          3252,
+          1700,
+          2198,
+          13193,
+          22317,
+          2566,
+          22317,
+          1313,
+          3252,
+          917,
+          58640,
+          77019,
+          22317,
+          1313,
+          3252,
+          917,
+          2198,
+          9018,
+          36799,
+          841,
+          2198,
+          18928,
+          2198,
+          2733,
+          1341,
+          51193,
+          1994,
+          22317,
+          1313,
+          3252,
+          917,
+          30975,
+          1335,
+          6279,
+          36799,
+          2566,
+          2198,
+          77019,
+          2198,
+          1994,
+          1341,
+          3417,
+          51193,
+          6279,
+          36799,
+          2972,
+          1269,
+          2198,
+          2972,
+          9172,
+          2198,
+          15973,
+          2198,
+          1056,
+          12134,
+          2198,
+          23646,
+          28353,
+          2198,
+          23646,
+          4164,
+          2198,
+          6045,
+          63207,
+          2198,
+          81929,
+          2198,
+          18427,
+          92010,
+          10253,
+          12122,
+          9069,
+          369,
+          4982,
+          9040,
+          624,
+          26008,
+          25,
+          2581,
+          17023,
+          458,
+          2551,
+          2621,
+          476,
+          3349,
+          429,
+          374,
+          537,
+          304,
+          279,
+          1467,
+          26,
+          990,
+          845,
+          323,
+          912,
+          458,
+          198,
+          11159,
+          4518,
+          13,
+          3406,
+          9253,
+          6788,
+          6605,
+          320,
+          7969,
+          5916,
+          448,
+          55907,
+          863,
+          525,
+          3840,
+          11,
+          537,
+          6891,
+          624,
+          28959,
+          279,
+          1482,
+          2943,
+          594,
+          829,
+          323,
+          2551,
+          11,
+          2670,
+          279,
+          1482,
+          5542,
+          4247,
+          198,
+          9309,
+          432,
+          35511,
+          279,
+          2943,
+          26,
+          458,
+          11464,
+          4031,
+          4686,
+          7600,
+          4990,
+          10619,
+          624,
+          5404,
+          537,
+          51044,
+          458,
+          11464,
+          21713,
+          476,
+          990,
+          825,
+          504,
+          23237,
+          6788,
+          6605,
+          624,
+          8614,
+          5036,
+          279,
+          975,
+          26,
+          2182,
+          14579,
+          11,
+          4982,
+          7813,
+          323,
+          11413,
+          304,
+          862,
+          8651,
+          5043,
+          624,
+          12106,
+          1817,
+          10982,
+          4982,
+          4379,
+          6896,
+          26,
+          2581,
+          21749,
+          264,
+          23237,
+          46629,
+          4379,
+          553,
+          279,
+          12194,
+          624,
+          29303,
+          374,
+          279,
+          10982,
+          1372,
+          315,
+          8153,
+          11,
+          2670,
+          1372,
+          4244,
+          13,
+          3155,
+          537,
+          990,
+          220,
+          16,
+          369,
+          198,
+          35673,
+          4115,
+          476,
+          10265,
+          279,
+          12194,
+          1172,
+          304,
+          6560,
+          13,
+          5443,
+          220,
+          16,
+          1172,
+          369,
+          264,
+          3175,
+          10063,
+          11060,
+          624,
+          46,
+          1763,
+          10101,
+          476,
+          20975,
+          27444,
+          975,
+          26,
+          432,
+          374,
+          537,
+          949,
+          315,
+          279,
+          7230,
+          24615,
+          624,
+          12106,
+          279,
+          10982,
+          12194,
+          4982,
+          320,
+          1958,
+          3110,
+          4115,
+          11,
+          6816,
+          476,
+          2849,
+          8,
+          1119,
+          4982,
+          26,
+          990,
+          845,
+          198,
+          9309,
+          902,
+          4982,
+          374,
+          10982,
+          13,
+          14695,
+          8290,
+          4115,
+          448,
+          264,
+          13954,
+          1509,
+          1760,
+          624,
+          785,
+          29994,
+          4982,
+          374,
+          279,
+          36921,
+          1660,
+          49446,
+          11,
+          537,
+          264,
+          8090,
+          476,
+          1379,
+          22739,
+          624,
+          5404,
+          537,
+          5508,
+          279,
+          3084,
+          315,
+          264,
+          3797,
+          1119,
+          4115,
+          476,
+          2849,
+          7241,
+          429,
+          374,
+          1246,
+          432,
+          374,
+          32605,
+          624,
+          32,
+          10063,
+          11060,
+          702,
+          12194,
+          220,
+          16,
+          323,
+          1181,
+          10982,
+          3311,
+          438,
+          4982,
+          9040,
+          13,
+          3155,
+          537,
+          11047,
+          198,
+          3843,
+          9040,
+          504,
+          264,
+          10856,
+          2790,
+          624,
+          22283,
+          1449,
+          7230,
+          25156,
+          32605,
+          2473,
+          476,
+          11060,
+          11,
+          1496,
+          389,
+          2441,
+          1555,
+          624,
+          3973,
+          279,
+          4453,
+          2551,
+          369,
+          975,
+          14713,
+          7402,
+          504,
+          1555,
+          12134,
+          1573,
+          13451,
+          624,
+          64602,
+          1127,
+          11,
+          4867,
+          14173,
+          323,
+          27444,
+          975,
+          525,
+          537,
+          5107,
+          24615,
+          3589,
+          624,
+          2679,
+          264,
+          16539,
+          4322,
+          20894,
+          8160,
+          572,
+          2669,
+          1865,
+          11,
+          2182,
+          432,
+          304,
+          3311,
+          63207,
+          624,
+          80456,
+          3311,
+          63207,
+          374,
+          220,
+          15,
+          13,
+          362,
+          23237,
+          11060,
+          374,
+          537,
+          264,
+          4867,
+          8160,
+          382,
+          6954,
+          451,
+          3363,
+          4152,
+          28353,
+          451,
+          13,
+          14540,
+          11464,
+          8160,
+          3793,
+          11,
+          2670,
+          3793,
+          389,
+          279,
+          975,
+          1555,
+          624,
+          19882,
+          57882,
+          990,
+          4152,
+          4164,
+          320,
+          28189,
+          18506,
+          40175,
+          8,
+          323,
+          4152,
+          28353,
+          845,
+          26,
+          8674,
+          3793,
+          990,
+          4152,
+          28353,
+          323,
+          4152,
+          4164,
+          845,
+          13,
+          3155,
+          537,
+          23583,
+          458,
+          27211,
+          476,
+          54761,
+          13168,
+          2400,
+          382,
+          35904,
+          510,
+          12603,
+          198,
+          27476,
+          311,
+          25,
+          96295,
+          21104,
+          366,
+          38637,
+          31,
+          5416,
+          18350,
+          18525,
+          7724,
+          397,
+          11613,
+          23765,
+          518,
+          19551,
+          220,
+          16,
+          20,
+          817,
+          4603,
+          624,
+          6954,
+          220,
+          22,
+          382,
+          20154,
+          151645,
+          198,
+          151644,
+          77091,
+          198,
+          515,
+          220,
+          330,
+          2972,
+          1269,
+          788,
+          330,
+          8851,
+          18350,
+          21104,
+          756,
+          220,
+          330,
+          2972,
+          9172,
+          788,
+          330,
+          38637,
+          31,
+          5416,
+          18350,
+          18525,
+          7724,
+          756,
+          220,
+          330,
+          15973,
+          788,
+          330,
+          26749,
+          756,
+          220,
+          330,
+          1056,
+          12134,
+          788,
+          2278,
+          262,
+          341,
+          414,
+          330,
+          8614,
+          788,
+          330,
+          11613,
+          23765,
+          756,
+          414,
+          330,
+          29303,
+          788,
+          220,
+          17,
+          345,
+          414,
+          330,
+          3843,
+          9040,
+          788,
+          330,
+          16,
+          20,
+          756,
+          414,
+          330,
+          15973,
+          788,
+          330,
+          26749,
+          756,
+          414,
+          330,
+          3843,
+          788,
+          330,
+          1924,
+          698,
+          262,
+          456,
+          220,
+          3211,
+          220,
+          330,
+          23646,
+          28353,
+          788,
+          220,
+          22,
+          345,
+          220,
+          330,
+          23646,
+          4164,
+          788,
+          845,
+          345,
+          220,
+          330,
+          6045,
+          63207,
+          788,
+          220,
+          15,
+          345,
+          220,
+          330,
+          81929,
+          788,
+          220,
+          16,
+          345,
+          220,
+          330,
+          18427,
+          788,
+          4167,
+          92
+        ],
+        "total_duration": 37259177130,
+        "load_duration": 6076605729,
+        "prompt_eval_count": 720,
+        "prompt_eval_cached_count": 0,
+        "prompt_eval_duration": 10694914000,
+        "eval_count": 118,
+        "eval_duration": 20479073000
+      }
+    },
+    "calibration-json-format": {
+      "result": {
+        "case": "calibration",
+        "condition": "compact_json",
+        "started_at": "2026-11-11T21:57:31.797708+00:00",
+        "source_commit": "638f77bcd2cbcd16b8d7bb26fe67aae91b340863",
+        "plan_sha256": "d72c924f44941f921bc91e8d951f59d1a86568431e866c446991885254262005",
+        "source": "Bill to: Calibration Works <billing@calibrationworks.example>\nTwo icons at USD 15 per icon.\nNet 7.\n",
+        "expected": {
+          "client_name": "Calibration Works",
+          "client_email": "billing@calibrationworks.example",
+          "currency": "USD",
+          "due_days": 7,
+          "due_date": null,
+          "amount_paid": "0",
+          "total": "30",
+          "items": [
+            {
+              "description_any": [
+                "icon"
+              ],
+              "qty": "2",
+              "unit_price": "15",
+              "unit_allowed": [
+                null,
+                "icon",
+                "icons"
+              ]
+            }
+          ]
+        },
+        "model": "qwen2.5:7b",
+        "state": "complete",
+        "provider": "Explicit synthetic provider; no provider action requested",
+        "rules": {
+          "seconds": 0.0032512540001334855,
+          "analysis": {
+            "client_name": "Calibration Works",
+            "client_email": "billing@calibrationworks.example",
+            "currency": "USD",
+            "line_items": [
+              {
+                "desc": "Icons",
+                "qty": "2",
+                "unit_price": "15",
+                "currency": "USD",
+                "unit": null
+              }
+            ],
+            "due_days": 7,
+            "amount_paid": "0",
+            "total": "30",
+            "confidence": 1.0,
+            "issues": [
+              {
+                "field": "client_email",
+                "severity": "info",
+                "message": "Using the explicit bill-to or invoice delivery instruction instead of the request sender."
+              }
+            ],
+            "source": "rules",
+            "note": "Thank you for your business."
+          },
+          "score": {
+            "complete_proposal": true,
+            "gaps": [],
+            "grounding_errors": []
+          },
+          "human_decision_required": false
+        },
+        "first": {
+          "ok": true,
+          "message": null,
+          "result": {
+            "analysis_job": {
+              "id": "calibration-compact_json",
+              "state": "running",
+              "elapsed_seconds": 0.0,
+              "message": "",
+              "model_skipped_for_review": false,
+              "failure_kind": null
+            }
+          },
+          "state": {
+            "today": "2026-11-11",
+            "ledger": [],
+            "invoice_details": [],
+            "invoice_requests": [],
+            "pending": [],
+            "creation_attempts": [],
+            "decisions": [],
+            "completed_reviews": [],
+            "audit": [],
+            "mock_requests": 0,
+            "external_calls": 0,
+            "provider_operations": 0,
+            "can_replay": false,
+            "native_operator": true,
+            "provider": "Explicit synthetic provider",
+            "durable": true
+          }
+        },
+        "native_seconds": 24.061606035000295,
+        "native": {
+          "ok": true,
+          "message": null,
+          "result": {
+            "analysis_job": {
+              "id": "calibration-compact_json",
+              "state": "ready",
+              "elapsed_seconds": 24.1,
+              "message": "",
+              "model_skipped_for_review": false,
+              "failure_kind": null
+            },
+            "analysis": {
+              "client_name": null,
+              "client_email": null,
+              "currency": "USD",
+              "line_items": [
+                {
+                  "desc": "Two icons",
+                  "qty": "2",
+                  "unit_price": "15",
+                  "currency": "USD",
+                  "unit": "icon"
+                }
+              ],
+              "due_days": 7,
+              "amount_paid": "0",
+              "total": "30",
+              "confidence": 0.45,
+              "issues": [
+                {
+                  "field": "client_name",
+                  "severity": "warning",
+                  "message": "Client name not provided in email."
+                },
+                {
+                  "field": "client_email",
+                  "severity": "warning",
+                  "message": "Client email not provided in email."
+                },
+                {
+                  "field": "client_email",
+                  "severity": "error",
+                  "message": "No client email found; PayPal needs a recipient email to send an invoice."
+                },
+                {
+                  "field": "client_name",
+                  "severity": "warning",
+                  "message": "No client name found."
+                },
+                {
+                  "field": "line_items[0].unit_price",
+                  "severity": "info",
+                  "message": "AI price is quoted with matching work wording on source line 2. Verify quantity and context manually."
+                }
+              ],
+              "source": "llm",
+              "note": "Thank you for your business.",
+              "source_references": {
+                "line_items": [
+                  {
+                    "qty": null
+                  }
+                ],
+                "payment_terms": {
+                  "text": "Net 7",
+                  "value": "7"
+                }
+              },
+              "review_currencies": [
+                "AUD",
+                "BRL",
+                "CAD",
+                "CHF",
+                "CNY",
+                "CZK",
+                "DKK",
+                "EUR",
+                "GBP",
+                "HKD",
+                "HUF",
+                "ILS",
+                "JPY",
+                "MXN",
+                "MYR",
+                "NOK",
+                "NZD",
+                "PHP",
+                "PLN",
+                "SEK",
+                "SGD",
+                "THB",
+                "TWD",
+                "USD"
+              ],
+              "totals_by_currency": [
+                {
+                  "currency": "USD",
+                  "total": "30"
+                }
+              ],
+              "financials_by_currency": [],
+              "line_amounts": [
+                "30"
+              ],
+              "source_amount_requirements": []
+            }
+          },
+          "state": {
+            "today": "2026-11-11",
+            "ledger": [],
+            "invoice_details": [],
+            "invoice_requests": [],
+            "pending": [],
+            "creation_attempts": [],
+            "decisions": [],
+            "completed_reviews": [],
+            "audit": [],
+            "mock_requests": 0,
+            "external_calls": 0,
+            "provider_operations": 0,
+            "can_replay": false,
+            "native_operator": true,
+            "provider": "Explicit synthetic provider",
+            "durable": true
+          }
+        },
+        "request_count": 1,
+        "provider_request_count": 0,
+        "score": {
+          "complete_proposal": false,
+          "gaps": [
+            "client_name",
+            "client_email",
+            "blocking_grounding_errors"
+          ],
+          "grounding_errors": [
+            {
+              "field": "client_email",
+              "severity": "error",
+              "message": "No client email found; PayPal needs a recipient email to send an invoice."
+            }
+          ]
+        },
+        "apply": {
+          "ok": true,
+          "message": null,
+          "result": {
+            "client_name": null,
+            "client_email": null,
+            "currency": "USD",
+            "line_items": [
+              {
+                "desc": "Two icons",
+                "qty": "2",
+                "unit_price": "15",
+                "currency": "USD",
+                "unit": "icon"
+              }
+            ],
+            "due_days": 7,
+            "amount_paid": "0",
+            "total": "30",
+            "confidence": 0.45,
+            "issues": [
+              {
+                "field": "client_name",
+                "severity": "warning",
+                "message": "Client name not provided in email."
+              },
+              {
+                "field": "client_email",
+                "severity": "warning",
+                "message": "Client email not provided in email."
+              },
+              {
+                "field": "client_email",
+                "severity": "error",
+                "message": "No client email found; PayPal needs a recipient email to send an invoice."
+              },
+              {
+                "field": "client_name",
+                "severity": "warning",
+                "message": "No client name found."
+              },
+              {
+                "field": "line_items[0].unit_price",
+                "severity": "info",
+                "message": "AI price is quoted with matching work wording on source line 2. Verify quantity and context manually."
+              }
+            ],
+            "source": "llm",
+            "note": "Thank you for your business.",
+            "source_references": {
+              "line_items": [
+                {
+                  "qty": null
+                }
+              ],
+              "payment_terms": {
+                "text": "Net 7",
+                "value": "7"
+              }
+            },
+            "review_currencies": [
+              "AUD",
+              "BRL",
+              "CAD",
+              "CHF",
+              "CNY",
+              "CZK",
+              "DKK",
+              "EUR",
+              "GBP",
+              "HKD",
+              "HUF",
+              "ILS",
+              "JPY",
+              "MXN",
+              "MYR",
+              "NOK",
+              "NZD",
+              "PHP",
+              "PLN",
+              "SEK",
+              "SGD",
+              "THB",
+              "TWD",
+              "USD"
+            ],
+            "totals_by_currency": [
+              {
+                "currency": "USD",
+                "total": "30"
+              }
+            ],
+            "financials_by_currency": [],
+            "line_amounts": [
+              "30"
+            ],
+            "source_amount_requirements": []
+          },
+          "state": {
+            "today": "2026-11-11",
+            "ledger": [],
+            "invoice_details": [],
+            "invoice_requests": [],
+            "pending": [],
+            "creation_attempts": [],
+            "decisions": [],
+            "completed_reviews": [],
+            "audit": [],
+            "mock_requests": 0,
+            "external_calls": 0,
+            "provider_operations": 0,
+            "can_replay": false,
+            "native_operator": true,
+            "provider": "Explicit synthetic provider",
+            "durable": true
+          }
+        },
+        "response": {
+          "status": 200,
+          "seconds": 24.05518408700118,
+          "body_bytes": 4865,
+          "completed_at": "2026-11-11T21:57:55.872776+00:00",
+          "model_metadata": {
+            "model": "qwen2.5:7b",
+            "created_at": "2026-11-11T21:57:55.86017039Z",
+            "done": true,
+            "done_reason": "stop",
+            "total_duration": 24041265589,
+            "load_duration": 3534557,
+            "prompt_eval_count": 733,
+            "prompt_eval_cached_count": 284,
+            "prompt_eval_duration": 5911798000,
+            "eval_count": 105,
+            "eval_duration": 18080470000
+          }
+        },
+        "finished_at": "2026-11-11T21:57:55.877556+00:00"
+      },
+      "request": {
+        "url": "http://127.0.0.1:11543/api/generate",
+        "timeout_seconds": 90,
+        "started_at": "2026-11-11T21:57:31.817207+00:00",
+        "body_bytes": 4585,
+        "body": {
+          "model": "qwen2.5:7b",
+          "prompt": "You extract invoice data from a freelancer's job email.\nReturn only one JSON object matching this JSON Schema:\n{\"type\":\"object\",\"properties\":{\"client_name\":{\"type\":[\"string\",\"null\"]},\"client_email\":{\"type\":[\"string\",\"null\"]},\"currency\":{\"type\":[\"string\",\"null\"]},\"line_items\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"desc\":{\"type\":\"string\"},\"qty\":{\"type\":[\"number\",\"null\"]},\"unit_price\":{\"type\":\"string\",\"enum\":[\"15\"]},\"currency\":{\"type\":[\"string\",\"null\"]},\"unit\":{\"type\":[\"string\",\"null\"]}},\"required\":[\"desc\",\"qty\",\"unit_price\",\"currency\",\"unit\"]}},\"due_days\":{\"type\":[\"integer\",\"null\"]},\"due_date\":{\"type\":[\"string\",\"null\"]},\"amount_paid\":{\"type\":\"number\"},\"confidence\":{\"type\":\"number\",\"minimum\":0,\"maximum\":1},\"issues\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"field\":{\"type\":\"string\"},\"severity\":{\"type\":\"string\",\"enum\":[\"error\",\"warning\",\"info\"]},\"message\":{\"type\":\"string\"}},\"required\":[\"field\",\"severity\",\"message\"]}}},\"required\":[\"client_name\",\"client_email\",\"currency\",\"line_items\",\"due_days\",\"due_date\",\"amount_paid\",\"confidence\",\"issues\"]}\nUse decimal strings for unit_price.\nReturn compact JSON on one line, without indentation or extra whitespace.\nRules: never invent an email address or price that is not in the text; use null and add an\nissue instead. Quoted earlier messages (lines starting with '>') are history, not scope.\nExtract the current client's name and email, including the current From header\nwhen it identifies the client; an explicit bill-to instruction takes priority.\nDo not omit an explicit recipient or use one from quoted earlier messages.\ndesc names the work; put counts, unit rates and currency in their separate fields.\nCopy each stated unit rate exactly; never divide a quoted hourly rate by the quantity.\nqty is the stated number of units, including number words. Do not use 1 for\nmultiple hours or hide the quantity only in desc. Use 1 only for a single flat fee.\nOmit optional or explicitly excluded work; it is not part of the agreed invoice.\nCopy the stated quantity unit (for example hours, pages or days) into unit; use null\nwhen no unit is stated. Never replace hours with a generic item count.\nThe counted unit is the noun being billed, not a duration or size modifier.\nDo not convert the length of a session into hours or days unless that is how it is priced.\nA flat fee has quantity 1 and its stated amount as unit_price. Do not calculate\nunit_price from a combined total.\nInclude every agreed separately priced service or fee, even on another line.\nCheck the entire email for work amounts missing from line_items before returning.\nTotals, prior payments and excluded work are not additional invoice items.\nIf a deposit/partial payment was already made, put it in amount_paid.\nOtherwise amount_paid is 0. A quoted fee is not a prior payment.\n\nNet N means due_days N. Copy explicit payment terms, including terms on the work line.\nCalendar deadlines use due_date (YYYY-MM-DD) and due_days null; relative terms use due_days and due_date null. Do not infer an absent or ambiguous calendar date.\n\nEMAIL:\n<<<\nBill to: Calibration Works <billing@calibrationworks.example>\nTwo icons at USD 15 per icon.\nNet 7.\n\n>>>",
+          "stream": false,
+          "format": {
+            "type": "object",
+            "properties": {
+              "client_name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "client_email": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "currency": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "line_items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "desc": {
+                      "type": "string"
+                    },
+                    "qty": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "unit_price": {
+                      "type": "string",
+                      "enum": [
+                        "15"
+                      ]
+                    },
+                    "currency": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "unit": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "desc",
+                    "qty",
+                    "unit_price",
+                    "currency",
+                    "unit"
+                  ]
+                }
+              },
+              "due_days": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "due_date": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "amount_paid": {
+                "type": "number"
+              },
+              "confidence": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "issues": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "field": {
+                      "type": "string"
+                    },
+                    "severity": {
+                      "type": "string",
+                      "enum": [
+                        "error",
+                        "warning",
+                        "info"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "field",
+                    "severity",
+                    "message"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "client_name",
+              "client_email",
+              "currency",
+              "line_items",
+              "due_days",
+              "due_date",
+              "amount_paid",
+              "confidence",
+              "issues"
+            ]
+          },
+          "options": {
+            "temperature": 0
+          }
+        }
+      },
+      "request-before-formatting": {
+        "model": "qwen2.5:7b",
+        "prompt": "You extract invoice data from a freelancer's job email.\nReturn only one JSON object matching this JSON Schema:\n{\"type\":\"object\",\"properties\":{\"client_name\":{\"type\":[\"string\",\"null\"]},\"client_email\":{\"type\":[\"string\",\"null\"]},\"currency\":{\"type\":[\"string\",\"null\"]},\"line_items\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"desc\":{\"type\":\"string\"},\"qty\":{\"type\":[\"number\",\"null\"]},\"unit_price\":{\"type\":\"string\",\"enum\":[\"15\"]},\"currency\":{\"type\":[\"string\",\"null\"]},\"unit\":{\"type\":[\"string\",\"null\"]}},\"required\":[\"desc\",\"qty\",\"unit_price\",\"currency\",\"unit\"]}},\"due_days\":{\"type\":[\"integer\",\"null\"]},\"due_date\":{\"type\":[\"string\",\"null\"]},\"amount_paid\":{\"type\":\"number\"},\"confidence\":{\"type\":\"number\",\"minimum\":0,\"maximum\":1},\"issues\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"field\":{\"type\":\"string\"},\"severity\":{\"type\":\"string\",\"enum\":[\"error\",\"warning\",\"info\"]},\"message\":{\"type\":\"string\"}},\"required\":[\"field\",\"severity\",\"message\"]}}},\"required\":[\"client_name\",\"client_email\",\"currency\",\"line_items\",\"due_days\",\"due_date\",\"amount_paid\",\"confidence\",\"issues\"]}\nUse decimal strings for unit_price.\nRules: never invent an email address or price that is not in the text; use null and add an\nissue instead. Quoted earlier messages (lines starting with '>') are history, not scope.\nExtract the current client's name and email, including the current From header\nwhen it identifies the client; an explicit bill-to instruction takes priority.\nDo not omit an explicit recipient or use one from quoted earlier messages.\ndesc names the work; put counts, unit rates and currency in their separate fields.\nCopy each stated unit rate exactly; never divide a quoted hourly rate by the quantity.\nqty is the stated number of units, including number words. Do not use 1 for\nmultiple hours or hide the quantity only in desc. Use 1 only for a single flat fee.\nOmit optional or explicitly excluded work; it is not part of the agreed invoice.\nCopy the stated quantity unit (for example hours, pages or days) into unit; use null\nwhen no unit is stated. Never replace hours with a generic item count.\nThe counted unit is the noun being billed, not a duration or size modifier.\nDo not convert the length of a session into hours or days unless that is how it is priced.\nA flat fee has quantity 1 and its stated amount as unit_price. Do not calculate\nunit_price from a combined total.\nInclude every agreed separately priced service or fee, even on another line.\nCheck the entire email for work amounts missing from line_items before returning.\nTotals, prior payments and excluded work are not additional invoice items.\nIf a deposit/partial payment was already made, put it in amount_paid.\nOtherwise amount_paid is 0. A quoted fee is not a prior payment.\n\nNet N means due_days N. Copy explicit payment terms, including terms on the work line.\nCalendar deadlines use due_date (YYYY-MM-DD) and due_days null; relative terms use due_days and due_date null. Do not infer an absent or ambiguous calendar date.\n\nEMAIL:\n<<<\nBill to: Calibration Works <billing@calibrationworks.example>\nTwo icons at USD 15 per icon.\nNet 7.\n\n>>>",
+        "stream": false,
+        "format": {
+          "type": "object",
+          "properties": {
+            "client_name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "client_email": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "currency": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "line_items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "desc": {
+                    "type": "string"
+                  },
+                  "qty": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "unit_price": {
+                    "type": "string",
+                    "enum": [
+                      "15"
+                    ]
+                  },
+                  "currency": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "unit": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "required": [
+                  "desc",
+                  "qty",
+                  "unit_price",
+                  "currency",
+                  "unit"
+                ]
+              }
+            },
+            "due_days": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "due_date": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "amount_paid": {
+              "type": "number"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "issues": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "field": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "type": "string",
+                    "enum": [
+                      "error",
+                      "warning",
+                      "info"
+                    ]
+                  },
+                  "message": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "field",
+                  "severity",
+                  "message"
+                ]
+              }
+            }
+          },
+          "required": [
+            "client_name",
+            "client_email",
+            "currency",
+            "line_items",
+            "due_days",
+            "due_date",
+            "amount_paid",
+            "confidence",
+            "issues"
+          ]
+        },
+        "options": {
+          "temperature": 0
+        }
+      },
+      "response": {
+        "status": 200,
+        "seconds": 24.05518408700118,
+        "body_bytes": 4865,
+        "completed_at": "2026-11-11T21:57:55.872776+00:00",
+        "model_metadata": {
+          "model": "qwen2.5:7b",
+          "created_at": "2026-11-11T21:57:55.86017039Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 24041265589,
+          "load_duration": 3534557,
+          "prompt_eval_count": 733,
+          "prompt_eval_cached_count": 284,
+          "prompt_eval_duration": 5911798000,
+          "eval_count": 105,
+          "eval_duration": 18080470000
+        }
+      },
+      "response-body": {
+        "model": "qwen2.5:7b",
+        "created_at": "2026-11-11T21:57:55.86017039Z",
+        "response": "{\"client_name\":null,\"client_email\":null,\"currency\":\"USD\",\"line_items\":[{\"desc\":\"Two icons\",\"qty\":2,\"unit_price\":\"15\",\"currency\":\"USD\",\"unit\":\"icon\"}],\"due_days\":7,\"due_date\":null,\"amount_paid\":0,\"confidence\":0.9,\"issues\":[{\"field\":\"client_name\",\"severity\":\"warning\",\"message\":\"Client name not provided in email.\"},{\"field\":\"client_email\",\"severity\":\"warning\",\"message\":\"Client email not provided in email.\"}]}",
+        "done": true,
+        "done_reason": "stop",
+        "context": [
+          151644,
+          8948,
+          198,
+          2610,
+          525,
+          1207,
+          16948,
+          11,
+          3465,
+          553,
+          54364,
+          14817,
+          13,
+          1446,
+          525,
+          264,
+          10950,
+          17847,
+          13,
+          151645,
+          198,
+          151644,
+          872,
+          198,
+          2610,
+          8649,
+          24615,
+          821,
+          504,
+          264,
+          92668,
+          594,
+          2618,
+          2551,
+          624,
+          5598,
+          1172,
+          825,
+          4718,
+          1633,
+          12579,
+          419,
+          4718,
+          12539,
+          510,
+          4913,
+          1313,
+          3252,
+          1700,
+          2198,
+          13193,
+          22317,
+          2972,
+          1269,
+          22317,
+          1313,
+          36799,
+          917,
+          2198,
+          2921,
+          1341,
+          51193,
+          2972,
+          9172,
+          22317,
+          1313,
+          36799,
+          917,
+          2198,
+          2921,
+          1341,
+          51193,
+          15973,
+          22317,
+          1313,
+          36799,
+          917,
+          2198,
+          2921,
+          1341,
+          51193,
+          1056,
+          12134,
+          22317,
+          1313,
+          3252,
+          1653,
+          2198,
+          3615,
+          22317,
+          1313,
+          3252,
+          1700,
+          2198,
+          13193,
+          22317,
+          8614,
+          22317,
+          1313,
+          3252,
+          917,
+          58640,
+          29303,
+          22317,
+          1313,
+          36799,
+          4082,
+          2198,
+          2921,
+          1341,
+          51193,
+          3843,
+          9040,
+          22317,
+          1313,
+          3252,
+          917,
+          2198,
+          9018,
+          36799,
+          16,
+          20,
+          1341,
+          51193,
+          15973,
+          22317,
+          1313,
+          36799,
+          917,
+          2198,
+          2921,
+          1341,
+          51193,
+          3843,
+          22317,
+          1313,
+          36799,
+          917,
+          2198,
+          2921,
+          1341,
+          3417,
+          1335,
+          6279,
+          36799,
+          8614,
+          2198,
+          29303,
+          2198,
+          3843,
+          9040,
+          2198,
+          15973,
+          2198,
+          3843,
+          1341,
+          3417,
+          1335,
+          23646,
+          28353,
+          22317,
+          1313,
+          36799,
+          11662,
+          2198,
+          2921,
+          1341,
+          51193,
+          23646,
+          4164,
+          22317,
+          1313,
+          36799,
+          917,
+          2198,
+          2921,
+          1341,
+          51193,
+          6045,
+          63207,
+          22317,
+          1313,
+          3252,
+          4082,
+          58640,
+          81929,
+          22317,
+          1313,
+          3252,
+          4082,
+          2198,
+          37988,
+          788,
+          15,
+          1335,
+          39187,
+          788,
+          16,
+          51193,
+          18427,
+          22317,
+          1313,
+          3252,
+          1653,
+          2198,
+          3615,
+          22317,
+          1313,
+          3252,
+          1700,
+          2198,
+          13193,
+          22317,
+          2566,
+          22317,
+          1313,
+          3252,
+          917,
+          58640,
+          77019,
+          22317,
+          1313,
+          3252,
+          917,
+          2198,
+          9018,
+          36799,
+          841,
+          2198,
+          18928,
+          2198,
+          2733,
+          1341,
+          51193,
+          1994,
+          22317,
+          1313,
+          3252,
+          917,
+          30975,
+          1335,
+          6279,
+          36799,
+          2566,
+          2198,
+          77019,
+          2198,
+          1994,
+          1341,
+          3417,
+          51193,
+          6279,
+          36799,
+          2972,
+          1269,
+          2198,
+          2972,
+          9172,
+          2198,
+          15973,
+          2198,
+          1056,
+          12134,
+          2198,
+          23646,
+          28353,
+          2198,
+          23646,
+          4164,
+          2198,
+          6045,
+          63207,
+          2198,
+          81929,
+          2198,
+          18427,
+          92010,
+          10253,
+          12122,
+          9069,
+          369,
+          4982,
+          9040,
+          624,
+          5598,
+          16830,
+          4718,
+          389,
+          825,
+          1555,
+          11,
+          2041,
+          69592,
+          476,
+          4960,
+          36372,
+          624,
+          26008,
+          25,
+          2581,
+          17023,
+          458,
+          2551,
+          2621,
+          476,
+          3349,
+          429,
+          374,
+          537,
+          304,
+          279,
+          1467,
+          26,
+          990,
+          845,
+          323,
+          912,
+          458,
+          198,
+          11159,
+          4518,
+          13,
+          3406,
+          9253,
+          6788,
+          6605,
+          320,
+          7969,
+          5916,
+          448,
+          55907,
+          863,
+          525,
+          3840,
+          11,
+          537,
+          6891,
+          624,
+          28959,
+          279,
+          1482,
+          2943,
+          594,
+          829,
+          323,
+          2551,
+          11,
+          2670,
+          279,
+          1482,
+          5542,
+          4247,
+          198,
+          9309,
+          432,
+          35511,
+          279,
+          2943,
+          26,
+          458,
+          11464,
+          4031,
+          4686,
+          7600,
+          4990,
+          10619,
+          624,
+          5404,
+          537,
+          51044,
+          458,
+          11464,
+          21713,
+          476,
+          990,
+          825,
+          504,
+          23237,
+          6788,
+          6605,
+          624,
+          8614,
+          5036,
+          279,
+          975,
+          26,
+          2182,
+          14579,
+          11,
+          4982,
+          7813,
+          323,
+          11413,
+          304,
+          862,
+          8651,
+          5043,
+          624,
+          12106,
+          1817,
+          10982,
+          4982,
+          4379,
+          6896,
+          26,
+          2581,
+          21749,
+          264,
+          23237,
+          46629,
+          4379,
+          553,
+          279,
+          12194,
+          624,
+          29303,
+          374,
+          279,
+          10982,
+          1372,
+          315,
+          8153,
+          11,
+          2670,
+          1372,
+          4244,
+          13,
+          3155,
+          537,
+          990,
+          220,
+          16,
+          369,
+          198,
+          35673,
+          4115,
+          476,
+          10265,
+          279,
+          12194,
+          1172,
+          304,
+          6560,
+          13,
+          5443,
+          220,
+          16,
+          1172,
+          369,
+          264,
+          3175,
+          10063,
+          11060,
+          624,
+          46,
+          1763,
+          10101,
+          476,
+          20975,
+          27444,
+          975,
+          26,
+          432,
+          374,
+          537,
+          949,
+          315,
+          279,
+          7230,
+          24615,
+          624,
+          12106,
+          279,
+          10982,
+          12194,
+          4982,
+          320,
+          1958,
+          3110,
+          4115,
+          11,
+          6816,
+          476,
+          2849,
+          8,
+          1119,
+          4982,
+          26,
+          990,
+          845,
+          198,
+          9309,
+          902,
+          4982,
+          374,
+          10982,
+          13,
+          14695,
+          8290,
+          4115,
+          448,
+          264,
+          13954,
+          1509,
+          1760,
+          624,
+          785,
+          29994,
+          4982,
+          374,
+          279,
+          36921,
+          1660,
+          49446,
+          11,
+          537,
+          264,
+          8090,
+          476,
+          1379,
+          22739,
+          624,
+          5404,
+          537,
+          5508,
+          279,
+          3084,
+          315,
+          264,
+          3797,
+          1119,
+          4115,
+          476,
+          2849,
+          7241,
+          429,
+          374,
+          1246,
+          432,
+          374,
+          32605,
+          624,
+          32,
+          10063,
+          11060,
+          702,
+          12194,
+          220,
+          16,
+          323,
+          1181,
+          10982,
+          3311,
+          438,
+          4982,
+          9040,
+          13,
+          3155,
+          537,
+          11047,
+          198,
+          3843,
+          9040,
+          504,
+          264,
+          10856,
+          2790,
+          624,
+          22283,
+          1449,
+          7230,
+          25156,
+          32605,
+          2473,
+          476,
+          11060,
+          11,
+          1496,
+          389,
+          2441,
+          1555,
+          624,
+          3973,
+          279,
+          4453,
+          2551,
+          369,
+          975,
+          14713,
+          7402,
+          504,
+          1555,
+          12134,
+          1573,
+          13451,
+          624,
+          64602,
+          1127,
+          11,
+          4867,
+          14173,
+          323,
+          27444,
+          975,
+          525,
+          537,
+          5107,
+          24615,
+          3589,
+          624,
+          2679,
+          264,
+          16539,
+          4322,
+          20894,
+          8160,
+          572,
+          2669,
+          1865,
+          11,
+          2182,
+          432,
+          304,
+          3311,
+          63207,
+          624,
+          80456,
+          3311,
+          63207,
+          374,
+          220,
+          15,
+          13,
+          362,
+          23237,
+          11060,
+          374,
+          537,
+          264,
+          4867,
+          8160,
+          382,
+          6954,
+          451,
+          3363,
+          4152,
+          28353,
+          451,
+          13,
+          14540,
+          11464,
+          8160,
+          3793,
+          11,
+          2670,
+          3793,
+          389,
+          279,
+          975,
+          1555,
+          624,
+          19882,
+          57882,
+          990,
+          4152,
+          4164,
+          320,
+          28189,
+          18506,
+          40175,
+          8,
+          323,
+          4152,
+          28353,
+          845,
+          26,
+          8674,
+          3793,
+          990,
+          4152,
+          28353,
+          323,
+          4152,
+          4164,
+          845,
+          13,
+          3155,
+          537,
+          23583,
+          458,
+          27211,
+          476,
+          54761,
+          13168,
+          2400,
+          382,
+          35904,
+          510,
+          12603,
+          198,
+          27476,
+          311,
+          25,
+          96295,
+          21104,
+          366,
+          38637,
+          31,
+          5416,
+          18350,
+          18525,
+          7724,
+          397,
+          11613,
+          23765,
+          518,
+          19551,
+          220,
+          16,
+          20,
+          817,
+          4603,
+          624,
+          6954,
+          220,
+          22,
+          382,
+          20154,
+          151645,
+          198,
+          151644,
+          77091,
+          198,
+          4913,
+          2972,
+          1269,
+          788,
+          2921,
+          1335,
+          2972,
+          9172,
+          788,
+          2921,
+          1335,
+          15973,
+          3252,
+          26749,
+          2198,
+          1056,
+          12134,
+          66582,
+          8614,
+          3252,
+          11613,
+          23765,
+          2198,
+          29303,
+          788,
+          17,
+          1335,
+          3843,
+          9040,
+          3252,
+          16,
+          20,
+          2198,
+          15973,
+          3252,
+          26749,
+          2198,
+          3843,
+          3252,
+          1924,
+          9207,
+          28503,
+          23646,
+          28353,
+          788,
+          22,
+          1335,
+          23646,
+          4164,
+          788,
+          2921,
+          1335,
+          6045,
+          63207,
+          788,
+          15,
+          1335,
+          81929,
+          788,
+          15,
+          13,
+          24,
+          1335,
+          18427,
+          66582,
+          2566,
+          3252,
+          2972,
+          1269,
+          2198,
+          77019,
+          3252,
+          18928,
+          2198,
+          1994,
+          3252,
+          2959,
+          829,
+          537,
+          3897,
+          304,
+          2551,
+          1189,
+          36828,
+          2566,
+          3252,
+          2972,
+          9172,
+          2198,
+          77019,
+          3252,
+          18928,
+          2198,
+          1994,
+          3252,
+          2959,
+          2551,
+          537,
+          3897,
+          304,
+          2551,
+          1189,
+          92,
+          13989
+        ],
+        "total_duration": 24041265589,
+        "load_duration": 3534557,
+        "prompt_eval_count": 733,
+        "prompt_eval_cached_count": 284,
+        "prompt_eval_duration": 5911798000,
+        "eval_count": 105,
+        "eval_duration": 18080470000
+      }
+    }
+  }
+}

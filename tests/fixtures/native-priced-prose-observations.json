@@ -1,0 +1,289 @@
+{
+  "bracken": {
+    "case": {
+      "id": "bracken",
+      "source": "From: Imani <imani@brackenworkshop.example>\nBill to: Bracken Workshop <accounts@brackenworkshop.example>\nFor the website handover, please bill 2.5 hours of accessibility review at USD 88 per hour, six annotated screenshots at USD 12 per screenshot and the agreed USD 35 handover pack.\nNet 14.\n",
+      "expected": {
+        "client_name": "Bracken Workshop",
+        "client_email": "accounts@brackenworkshop.example",
+        "currency": "USD",
+        "due_days": 14,
+        "due_date": null,
+        "amount_paid": "0",
+        "items": [
+          {
+            "description_words": [
+              "accessibility",
+              "review"
+            ],
+            "qty": "2.5",
+            "unit_price": "88",
+            "unit_allowed": [
+              "hour",
+              "hours",
+              "hr",
+              "hrs"
+            ]
+          },
+          {
+            "description_words": [
+              "annotated",
+              "screenshot"
+            ],
+            "qty": "6",
+            "unit_price": "12",
+            "unit_allowed": [
+              "screenshot",
+              "screenshots"
+            ]
+          },
+          {
+            "description_words": [
+              "handover",
+              "pack"
+            ],
+            "qty": "1",
+            "unit_price": "35",
+            "unit_allowed": [
+              null,
+              "pack",
+              "fee",
+              "flat fee",
+              "item",
+              "items",
+              "unit",
+              "units"
+            ]
+          }
+        ],
+        "total": "327.0"
+      }
+    },
+    "raw": {
+      "client_name": "Bracken Workshop",
+      "client_email": "accounts@brackenworkshop.example",
+      "currency": "USD",
+      "line_items": [
+        {
+          "desc": "accessibility review",
+          "qty": 2.5,
+          "unit_price": "88",
+          "currency": "USD",
+          "unit": "hours"
+        },
+        {
+          "desc": "annotated screenshots",
+          "qty": 6,
+          "unit_price": "12",
+          "currency": "USD",
+          "unit": "screenshot"
+        },
+        {
+          "desc": "handover pack",
+          "qty": 1,
+          "unit_price": "35",
+          "currency": "USD",
+          "unit": null
+        }
+      ],
+      "due_days": 14,
+      "due_date": null,
+      "amount_paid": 0,
+      "confidence": 1,
+      "issues": []
+    },
+    "case_sha256": "57b3b8a266603e93735574d9ad7bc9037f9eeee62e370340ac55f355af623d9e",
+    "raw_sha256": "174c9966eb446e8416e40361538c20bd78b03a98858d8fc27c0745cae3e46b80"
+  },
+  "gannet": {
+    "case": {
+      "id": "gannet",
+      "source": "Bill to Gannet Museum, billing@gannetmuseum.example.\nWe agreed on JPY 3200 for each display label; seven labels were completed. The image licensing fee is a flat JPY 4800, and the delivery charge is JPY 1200.\nPayment is due on 2026-12-17.\n",
+      "expected": {
+        "client_name": "Gannet Museum",
+        "client_email": "billing@gannetmuseum.example",
+        "currency": "JPY",
+        "due_days": null,
+        "due_date": "2026-12-17",
+        "amount_paid": "0",
+        "items": [
+          {
+            "description_words": [
+              "display",
+              "label"
+            ],
+            "qty": "7",
+            "unit_price": "3200",
+            "unit_allowed": [
+              "label",
+              "labels"
+            ]
+          },
+          {
+            "description_words": [
+              "image",
+              "licensing"
+            ],
+            "qty": "1",
+            "unit_price": "4800",
+            "unit_allowed": [
+              null,
+              "fee",
+              "flat fee",
+              "item",
+              "items",
+              "unit",
+              "units"
+            ]
+          },
+          {
+            "description_words": [
+              "delivery"
+            ],
+            "qty": "1",
+            "unit_price": "1200",
+            "unit_allowed": [
+              null,
+              "fee",
+              "charge",
+              "flat fee",
+              "item",
+              "items",
+              "unit",
+              "units"
+            ]
+          }
+        ],
+        "total": "28400"
+      }
+    },
+    "raw": {
+      "client_name": "Gannet Museum",
+      "client_email": "billing@gannetmuseum.example",
+      "currency": "JPY",
+      "line_items": [
+        {
+          "desc": "Display label design",
+          "qty": 7,
+          "unit_price": "3200",
+          "currency": "JPY",
+          "unit": "label"
+        },
+        {
+          "desc": "Image licensing fee",
+          "qty": 1,
+          "unit_price": "4800",
+          "currency": "JPY",
+          "unit": null
+        },
+        {
+          "desc": "Delivery charge",
+          "qty": 1,
+          "unit_price": "1200",
+          "currency": "JPY",
+          "unit": null
+        }
+      ],
+      "due_days": null,
+      "due_date": "2026-12-17",
+      "amount_paid": 0,
+      "confidence": 1,
+      "issues": []
+    },
+    "case_sha256": "12c355796781e7a662b6e042df560636922302222f1599d862170b60a1d48323",
+    "raw_sha256": "2eef244b0c35fced64158405b0a70154b974aa727fe4f70231c2ea6795f5e89d"
+  },
+  "foxglove": {
+    "case": {
+      "id": "foxglove",
+      "source": "Please send the invoice to Foxglove Courses, accounts@foxglovecourses.example.\nThe agreed completed work is three modules of course editing at AUD 160 per module and eight diagram captions at AUD 14 per caption. Add the fixed AUD 22 file preparation fee.\nThe AUD 100 deposit has already been received and confirmed. Payment is due within 14 days of the invoice date.\n",
+      "expected": {
+        "client_name": "Foxglove Courses",
+        "client_email": "accounts@foxglovecourses.example",
+        "currency": "AUD",
+        "due_days": 14,
+        "due_date": null,
+        "amount_paid": "100",
+        "items": [
+          {
+            "description_words": [
+              "course",
+              "editing"
+            ],
+            "qty": "3",
+            "unit_price": "160",
+            "unit_allowed": [
+              "module",
+              "modules"
+            ]
+          },
+          {
+            "description_words": [
+              "diagram",
+              "caption"
+            ],
+            "qty": "8",
+            "unit_price": "14",
+            "unit_allowed": [
+              "caption",
+              "captions"
+            ]
+          },
+          {
+            "description_words": [
+              "file",
+              "preparation"
+            ],
+            "qty": "1",
+            "unit_price": "22",
+            "unit_allowed": [
+              null,
+              "fee",
+              "flat fee",
+              "item",
+              "items",
+              "unit",
+              "units"
+            ]
+          }
+        ],
+        "total": "614"
+      }
+    },
+    "raw": {
+      "client_name": "Foxglove Courses",
+      "client_email": "accounts@foxglovecourses.example",
+      "currency": "AUD",
+      "line_items": [
+        {
+          "desc": "course editing",
+          "qty": 3,
+          "unit_price": "160",
+          "currency": "AUD",
+          "unit": "module"
+        },
+        {
+          "desc": "diagram captions",
+          "qty": 8,
+          "unit_price": "14",
+          "currency": "AUD",
+          "unit": "caption"
+        },
+        {
+          "desc": "file preparation fee",
+          "qty": 1,
+          "unit_price": "22",
+          "currency": "AUD",
+          "unit": null
+        }
+      ],
+      "due_days": 14,
+      "due_date": null,
+      "amount_paid": 100,
+      "confidence": 1,
+      "issues": []
+    },
+    "case_sha256": "1557c626aa33cb011a52567367064f2562a5e4ff282591148b6835ec12e8c369",
+    "raw_sha256": "d9136cffbd62fc0775fda63712812fdc46502c94cd5ca709fc305eccb29e5281"
+  }
+}

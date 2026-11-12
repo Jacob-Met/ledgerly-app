@@ -1,0 +1,151 @@
+/* The client request and proposed invoice are the work surface. */
+:root { --paper:#f5f5f1; --white:#fff; --ink:#20323a; --muted:#4f6167; }
+.shell { width:min(1520px,calc(100% - 48px)); }
+.masthead { height:60px; border-bottom:1px solid var(--line); }
+.brand strong { font-size:17px; letter-spacing:.025em; }
+.brand small { font:11px/1.3 system-ui,sans-serif; letter-spacing:0; }
+.engine-pill { font:12px/1.3 system-ui,sans-serif; }
+.desk-toolbar { display:flex; align-items:center; justify-content:space-between; gap:28px; padding:24px 0 12px; }
+.desk-toolbar h1 { font:650 27px/1.15 system-ui,sans-serif; letter-spacing:-.035em; margin:0; }
+.desk-toolbar p { margin:7px 0 0; font-size:12px; line-height:1.5; color:var(--muted); }
+.engine-controls { display:flex; align-items:center; gap:15px; max-width:460px; }
+.engine-controls .button { flex-shrink:0; }
+.engine-controls #engine-note { margin:0; font:12px/1.45 system-ui,sans-serif!important; }
+.workflow { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.1fr); gap:0; padding:0; border:1px solid var(--line); background:var(--white); align-items:start; }
+.workflow>.panel { border:0; margin:0; padding:24px; background:transparent; }
+.workflow>.intake { border-right:1px solid var(--line); min-height:570px; }
+.workflow>.invoice-review { min-height:570px; }
+.panel-heading h2 { font:650 19px/1.25 system-ui,sans-serif; letter-spacing:-.025em; }
+.panel-heading>p:last-child { font:13px/1.5 system-ui,sans-serif; margin:6px 0 18px; }
+.intake .sample-row { margin:16px 0 14px; }
+.sample-row label,.input-label { font:12px/1.4 system-ui,sans-serif; letter-spacing:0; }
+.sample-row select { font:12px/1.4 system-ui,sans-serif; }
+.intake-files { padding:0 0 16px; margin:0 0 18px; border:0; border-bottom:1px solid var(--line); border-radius:0; background:transparent; }
+.intake-files>h3 { font-size:14px; margin:0 0 5px; }
+.intake-files>p:not(#intake-file-status) { font-size:12px; margin:0 0 10px; color:var(--muted); }
+.intake-file-actions { gap:8px; }
+#intake-file-status { font-size:12px; }
+#job-email { min-height:300px; font:13px/1.65 var(--mono); background:#fafbf9; padding:14px; }
+.intake>.button-row { margin-top:12px; }
+.intake>.fine-print { font-family:system-ui,sans-serif; }
+.invoice-review .analysis { margin:0; padding:0; border:0; background:transparent; }
+.review-empty { padding:60px 12px; color:var(--muted); max-width:440px; }
+.review-empty strong { color:var(--ink); font-size:19px; font-weight:550; }
+.review-empty p { font-size:14px; line-height:1.65; }
+.invoice-review>.button-row { border-top:1px solid var(--line); padding-top:16px; margin-top:18px; }
+.invoice-review .analysis-head { margin:8px 0 18px; }
+.invoice-review .analysis-head strong { font:600 20px/1.3 system-ui,sans-serif; }
+.invoice-review .analysis-head .eyebrow { font-size:10px; color:var(--muted); }
+.invoice-review .client-row { font:14px/1.5 system-ui,sans-serif; }
+.invoice-review .field-row { font:12px/1.5 system-ui,sans-serif; }
+.invoice-review .item-table table { font-size:13px; }
+.invoice-review .item-table th { font:600 11px/1.4 system-ui,sans-serif; letter-spacing:0; }
+.invoice-review .item-table td { padding:10px 5px; }
+.invoice-review .item-table tfoot { font:600 14px/1.4 system-ui,sans-serif; letter-spacing:0; }
+.invoice-review .issue { font-size:12px; grid-template-columns:105px 1fr; }
+.invoice-review .issue b { font-size:10px; }
+.operations { display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr); gap:0 28px; margin-top:28px; }
+.operations>.panel { border:0; border-top:1px solid var(--line); padding:20px 0; background:transparent; }
+.operations>.approval-panel { grid-column:1/-1; }
+.operations>.approval-panel .panel-heading { display:flex; align-items:baseline; gap:20px; flex-wrap:wrap; }
+.operations>.approval-panel .panel-heading p { margin:0 0 12px; }
+.operations>.ledger-panel { grid-column:1; }
+.operations>.audit-panel { grid-column:2; grid-row:2; margin:0; }
+.operations>.ledger-footer { grid-column:1/-1; border-top:1px solid var(--line); }
+.operations .empty { font-size:13px; }
+.operations .approval-list { grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr)); }
+.footer { margin-top:24px; }
+@media(min-width:1100px) {
+ .workflow>.intake { position:sticky; top:44px; }
+}
+@media(max-width:1050px) {
+ .desk-toolbar { align-items:flex-start; }
+ .engine-controls { max-width:300px; flex-direction:column; align-items:flex-start; gap:6px; }
+ .workflow>.panel { padding:20px; }
+ .workflow { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+}
+@media(max-width:760px) {
+ .shell { width:calc(100% - 24px); }
+ .masthead { height:auto; min-height:60px; flex-wrap:wrap; padding:12px 0; gap:10px; }
+ .brand small { font-size:10px; }
+ .engine-pill { max-width:none; font-size:11px; }
+ .desk-toolbar { padding-top:18px; gap:14px; flex-wrap:wrap; }
+ .desk-toolbar h1 { font-size:25px; }
+ .engine-controls { max-width:none; flex-direction:row; align-items:center; }
+ .workflow { grid-template-columns:minmax(0,1fr); }
+ .workflow>.intake { border-right:0; border-bottom:1px solid var(--line); min-height:0; }
+ .workflow>.invoice-review { min-height:0; }
+ .workflow>.panel { padding:18px; }
+ #job-email { min-height:235px; }
+ .review-empty { padding:20px 0; }
+ .sample-row select { flex-basis:auto; }
+ .operations { grid-template-columns:1fr; margin-top:20px; }
+ .operations>.ledger-panel,.operations>.audit-panel { grid-column:auto; grid-row:auto; }
+ .operations>.approval-panel .panel-heading { gap:5px; }
+ .intake-file-actions>button { flex:1 1 auto; }
+}
+@media(max-width:420px) {
+ .engine-controls { flex-wrap:wrap; }
+ .invoice-review .issue { grid-template-columns:1fr; }
+ .workflow>.panel { padding:15px; }
+}
+
+/* Once ready, status in the masthead replaces the redundant startup control. */
+.shell:has(#engine-dot.ready) .engine-controls { display:none; }
+.example-tools { margin:14px 0; }
+.example-tools>summary { cursor:pointer; font-size:12px; color:var(--muted); }
+.example-tools .sample-row { padding:8px 0 2px; margin:0; }
+.workflow .intake>.panel-heading { margin-bottom:16px; }
+@media(max-width:760px) {
+ .desk-toolbar { padding:14px 0 10px; }
+ .desk-toolbar p { font-size:12px; }
+ .button { min-height:44px; }
+ .intake-files { margin-bottom:14px; padding-bottom:14px; }
+ .intake-files>p:not(#intake-file-status) { font-size:12px; }
+}
+
+/* One editable invoice; the untouched machine result remains available below. */
+.invoice-review .review-editor { margin-top:10px; padding-top:10px; }
+.invoice-review .review-editor>summary { font-size:15px; }
+.invoice-review .review-editor>p { font-size:12px; margin:8px 0 12px; }
+.invoice-review .review-fields { gap:10px 14px; margin:14px 0 20px; }
+.invoice-review .review-line { grid-template-columns:repeat(4,minmax(0,1fr)); border:0; border-top:1px solid var(--line); border-radius:0; padding:10px 0; margin:0 0 10px; background:transparent; gap:8px 10px; }
+.invoice-review .review-line legend { padding:0 8px 0 0; font-size:12px; }
+.invoice-review .review-line .review-description { grid-column:1/-1; }
+.invoice-review .review-line .review-remove { padding:2px 0; min-height:26px; margin:0; }
+.invoice-review .review-fields input,.invoice-review .review-line input,.invoice-review .review-line select { font:13px/1.4 system-ui,sans-serif; padding:8px; }
+.invoice-review .review-result { position:sticky; top:44px; z-index:3; margin:0; padding:12px 14px; background:#f5f7f3; border:1px solid var(--line); border-left:3px solid var(--gold); box-shadow:0 3px 0 #ffffff; font:12px/1.45 system-ui,sans-serif; }
+.invoice-review .review-result:has(.issue-list) { position:static; }
+.invoice-review .review-result strong { font-size:14px; }
+.invoice-review .review-result p { margin:5px 0 0; font-size:12px; }
+.invoice-review .review-totals { margin:6px 0 0; gap:8px 18px; font:600 18px/1.3 system-ui,sans-serif; }
+.invoice-review .review-totals li { padding:0; background:transparent; }
+.invoice-review>.button-row { position:sticky; bottom:0; z-index:4; background:var(--white); padding:12px 0; margin-bottom:-12px; }
+.source-warnings { margin:12px 0; }
+.source-warnings>summary { cursor:pointer; font-size:13px; font-weight:600; padding:4px 0; }
+.extraction-record { margin-top:22px; padding-top:14px; border-top:1px solid var(--line); }
+.extraction-record>summary { cursor:pointer; font-size:12px; color:var(--muted); }
+.extraction-record>p { font-size:12px; color:var(--muted); }
+.extraction-record .client-row { margin-top:14px; }
+@media(max-width:520px) {
+ .invoice-review .review-line { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .invoice-review .review-result { top:36px; padding:10px; }
+ .invoice-review .review-line .review-remove { min-height:40px; }
+}
+
+.source-warnings.acknowledged { border-left:3px solid #60816d; padding-left:10px; }
+.source-warnings.acknowledged .issue { background:transparent; }
+
+.invoice-review .review-fields label,.invoice-review .review-line label { font-size:12px; }
+html:has(#review-form) { scroll-padding-top:161px; scroll-padding-bottom:80px; }
+@media(max-width:760px) {
+ html:has(#review-form) { scroll-padding-top:121px; scroll-padding-bottom:80px; }
+ .invoice-review .review-result:not([data-incomplete="true"]):has(.review-totals):not(:has(.issue-list)) p { display:none; }
+ .invoice-review .review-result { padding:9px 10px; }
+ .invoice-review .review-result strong { font-size:13px; }
+ .invoice-review .review-totals { font-size:17px; margin-top:4px; }
+}
+
+.invoice-review .analysis-head strong { font:13px/1.4 system-ui,sans-serif; color:var(--muted); }
+/* Scroll targets must clear the persistent save/conflict strip. */
+#approval-list,#review-form,#ledger-list,#job-email { scroll-margin-top:64px; }

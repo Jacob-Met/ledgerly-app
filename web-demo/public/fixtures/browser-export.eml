@@ -1,0 +1,29 @@
+From: Marin Vale <marin@example.test>
+To: Studio <studio@example.test>
+Subject: =?utf-8?q?Caf=C3=A9?= campaign
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============7066953350065287150=="
+
+--===============7066953350065287150==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Confirming the scope:
+
+- 2 hours of color grading at $140/hr
+- 1 x Sound mix @ $65
+
+Payment terms Net 21.
+
+On Monday, an older client wrote:
+Old project: 20 hours at $800/hr
+
+--===============7066953350065287150==
+Content-Type: text/plain
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="older-quote.txt"
+MIME-Version: 1.0
+
+SW52b2ljZSA1MCBob3VycyBhdCAkOTAwL2hy
+
+--===============7066953350065287150==--

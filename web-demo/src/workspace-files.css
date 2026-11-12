@@ -1,0 +1,29 @@
+.workspace-files{margin:8px 0 16px;padding:12px 0;border-top:1px solid var(--line);min-width:0}
+.workspace-file-actions{display:flex;flex-wrap:wrap;gap:8px}
+.workspace-files .fine-print,.workspace-files [role=status]{margin:8px 0;font-size:12px}
+.workspace-files [role=status]:empty{display:none}
+#workspace-file-preview{border:0;border-top:1px solid var(--line);padding:18px 0 0;margin-top:16px;background:transparent;max-width:100%}
+#workspace-file-preview h3{margin:0 0 8px;font:500 20px/1.25 var(--sans)}
+#workspace-file-preview h4{margin:16px 0 6px}
+#workspace-file-summary{margin:0 0 4px;font-size:13px}
+.workspace-file-saved{display:block;color:var(--muted);font-size:12px;line-height:1.5}
+.workspace-file-warning{margin:12px 0;font-size:13px;line-height:1.5;color:var(--muted)}
+.workspace-file-choices{display:grid;grid-template-columns:minmax(0,1fr) auto;margin:12px 0 18px}
+.workspace-file-invoices{padding-right:12px;box-sizing:border-box;overflow:auto;max-height:320px;overscroll-behavior:contain;scrollbar-gutter:stable}
+.workspace-file-invoices:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.workspace-file-ledger{list-style:none;padding:0;margin:0}
+.workspace-file-ledger>li{padding:14px 0;border-top:1px solid var(--line)}
+.workspace-file-invoice-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-size:15px;line-height:1.4}
+.workspace-file-invoice-heading strong{font-weight:500;overflow-wrap:anywhere}
+.workspace-file-invoice-status{font-size:12px;text-transform:capitalize;color:var(--muted)}
+.workspace-file-invoice-identity{margin:4px 0 10px;color:var(--muted);font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+.workspace-file-amounts{margin:0;display:grid;gap:4px;font-size:13px;line-height:1.4}
+.workspace-file-amounts>div{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.workspace-file-amounts dt{color:var(--muted)}
+.workspace-file-amounts dd{margin:0;font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;overflow-wrap:anywhere;min-width:0}
+.workspace-file-amounts>div:last-child{font-weight:500}
+.workspace-file-unfinished{border-top:1px solid var(--line);margin-top:14px;padding-top:14px;font-size:13px}
+.workspace-file-unfinished>summary{cursor:pointer}
+#workspace-file-intake{white-space:pre-wrap;overflow-wrap:anywhere;max-height:220px;overflow:auto;font:13px/1.5 var(--sans);padding:12px;background:#f3f4f6}
+#workspace-file-fields{font-size:13px;line-height:1.5}
+@media(max-width:600px){.workspace-file-actions .button{flex:1 1 auto}.workspace-file-invoices{max-height:310px}}

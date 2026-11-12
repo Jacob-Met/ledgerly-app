@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools==84.2.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ledgerly"
+version = "0.1.6"
+description = "Agentic invoice + payout copilot for freelancers (PayPal Invoicing v2)"
+license = "MIT"
+authors = [{ name = "Jacob Scott-Metoyer" }]
+requires-python = ">=3.12"
+dependencies = ["pypdf==7.0.1"]
+
+[project.scripts]
+ledgerly-operator = "ledgerly.operator:main"
+ledgerly-retainers = "ledgerly.retainer:main"
+
+[project.optional-dependencies]
+dev = ["pytest==9.2.0", "pytest-xdist==3.8.0", "playwright==1.65.0"]
+
+[tool.pytest.ini_options]
+addopts = "-n 4 --dist loadfile"
+testpaths = ["tests"]
+pythonpath = [".", "tests"]
+
+[tool.setuptools.packages.find]
+include = ["ledgerly", "ledgerly.*"]
+namespaces = false
+
+[tool.setuptools.package-data]
+ledgerly = ["sample_email.txt", "retainer_web_ui.html"]
+"ledgerly._demo_fixtures" = ["*.txt"]

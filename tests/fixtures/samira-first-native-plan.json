@@ -1,0 +1,26 @@
+{
+  "source": "From: Samira Noor <samira@elmbridge.example>\nBill to: Elmbridge Practice <accounts@elmbridge.example>\nCompleted work for this invoice:\nThree 45-minute consultation sessions at CAD 80 each.\nTwo hours of preparation at CAD 65 per hour.\nPlease use Net 7 terms.\nThanks,\nSamira",
+  "expected": {
+    "client_name": "Elmbridge Practice",
+    "client_email": "accounts@elmbridge.example",
+    "currency": "CAD",
+    "line_items": [
+      {
+        "qty": 3,
+        "unit_price": 80,
+        "counted_unit": "sessions",
+        "provider_unit": "QUANTITY"
+      },
+      {
+        "qty": 2,
+        "unit_price": 65,
+        "counted_unit": "hours",
+        "provider_unit": "HOURS"
+      }
+    ],
+    "total": 370,
+    "due_days": 7,
+    "amount_paid": 0
+  },
+  "status": "Frozen before Rules or model observation. Planned first native action, not yet executed. Unit-contract clarification follows retained Bennett duration-modifier failure; no same-question rerun."
+}

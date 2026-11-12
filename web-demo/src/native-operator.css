@@ -1,0 +1,14 @@
+.native-provider{display:flex;align-items:center;gap:1rem;border-bottom:2px solid currentColor;padding:.9rem 0;margin-bottom:1rem;flex-wrap:wrap}.native-provider strong{font-size:1rem}.native-provider span{flex:1;min-width:14rem;font-size:.875rem}.native-decisions:empty{display:none}.native-decisions{border-left:3px solid #b24a27;padding:.5rem 1rem;margin:1rem 0}.native-operator .button-payment{display:none!important}.native-operator [hidden]{display:none!important}
+
+.native-confirm{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;font-size:.85rem;line-height:1.5;margin:.7rem 0}.native-confirm input{max-width:22rem;padding:.45rem .6rem;border:1px solid currentColor;border-radius:0;background:transparent;color:inherit;font-family:monospace}
+
+.native-analysis-activity{border-left:3px solid #60816d;background:#f3f6f0;padding:12px 14px;margin:0 0 16px}.native-analysis-activity p{margin:0 0 8px;font-size:13px;line-height:1.5;overflow-wrap:anywhere}.native-analysis-activity .fine-print{font-size:12px}.native-analysis-actions{display:flex;flex-wrap:wrap;gap:8px}.native-analysis-actions:has(button:not([hidden])){margin-top:10px}@media(max-width:600px){.native-analysis-actions .button{flex:1 1 auto}}
+
+.native-model-note{display:block;margin:10px 0 0;color:var(--muted);font:12px/1.5 system-ui,sans-serif;overflow-wrap:anywhere}
+
+/* Keep the initial source view free of an empty invoice card; active analysis and manual review remain visible. */
+.native-operator .invoice-review:has(#analysis:empty):not(:has(.native-analysis-activity:not([hidden]))){display:none}
+
+@media(min-width:761px){
+ body.native-operator[data-desk-view=compose] .workflow:has(#analysis:empty):not(:has(.native-analysis-activity:not([hidden]))){grid-template-columns:minmax(0,1fr);max-width:760px}
+}

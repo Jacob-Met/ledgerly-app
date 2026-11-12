@@ -1,0 +1,74 @@
+/* Invoice document: one editable surface, with its amount and work together. */
+.invoice-review .review-editor{margin:0;padding:0;border:0}
+.invoice-review .review-editor>summary{font:650 25px/1.2 system-ui,sans-serif;letter-spacing:-.035em;padding:0 0 20px;list-style:none;cursor:pointer}
+.invoice-review .review-editor>summary::-webkit-details-marker{display:none}
+.invoice-review .analysis-head{display:none}
+.invoice-review #review-form{display:block}
+.invoice-document-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(160px,.7fr);gap:24px;align-items:start;padding-bottom:22px;border-bottom:2px solid #203c39}
+.invoice-review .review-fields{margin:0;display:grid;gap:8px}
+.invoice-review .review-fields label,.invoice-review .review-line label{font:500 11px/1.35 system-ui,sans-serif;color:#61716f;letter-spacing:.01em}
+.invoice-review .review-fields input,.invoice-review .review-fields select,.invoice-review .review-line input,.invoice-review .review-line select{font:400 14px/1.4 system-ui,sans-serif;border:1px solid transparent;border-bottom-color:#d6dfda;background:transparent;border-radius:0;padding:8px 4px;color:#172f2d;min-height:36px;width:100%;min-width:0}
+.invoice-review .review-fields input:hover,.invoice-review .review-fields select:hover,.invoice-review .review-line input:hover,.invoice-review .review-line select:hover{background:#f5f8f5;border-color:#c9d8d0}
+.invoice-review .review-fields input:focus,.invoice-review .review-fields select:focus,.invoice-review .review-line input:focus,.invoice-review .review-line select:focus{background:#fff;border-color:#2b7561;outline:2px solid #c9e5d9;outline-offset:1px}
+.invoice-review #review-client-name{font-size:19px;font-weight:600;letter-spacing:-.025em}
+.invoice-review .review-client-fields{grid-template-columns:1fr}
+.invoice-review .review-result{position:static;min-height:80px;margin:0;padding:0;border:0;background:transparent;box-shadow:none;text-align:right;font:12px/1.4 system-ui,sans-serif}
+.invoice-review .review-result strong{font:500 11px/1.4 system-ui,sans-serif;color:#61716f}
+.invoice-review .review-result .review-totals{display:grid;gap:4px;justify-content:end;margin:7px 0 0;font:600 30px/1.15 system-ui,sans-serif;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.invoice-review .review-result .review-totals li{background:none;padding:0}
+.invoice-review .review-result .issue-list{text-align:left;margin-top:8px}
+.invoice-review .review-result .issue{grid-template-columns:1fr;padding:6px;font-size:11px}
+.invoice-review .review-result p{margin:4px 0;font-size:11px}
+.invoice-review .review-terms-row{grid-template-columns:1.4fr .7fr .9fr;gap:18px;margin:18px 0 24px;align-items:start}
+.invoice-review .review-terms-row [hidden]{display:none}
+.invoice-review .review-line{display:grid;grid-template-columns:minmax(140px,2.3fr) minmax(54px,.6fr) minmax(74px,.9fr) minmax(70px,.7fr) minmax(65px,.7fr) 28px;gap:10px;border:0;border-bottom:1px solid #dbe3de;background:transparent;margin:0;padding:12px 0;align-items:end}
+.invoice-review .review-line legend{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.invoice-review .review-line .review-description{grid-column:auto}
+.invoice-review .review-line input[data-field=qty],.invoice-review .review-line input[data-field=unit_price]{text-align:right;font-variant-numeric:tabular-nums}
+.invoice-review .review-line .review-remove{grid-column:auto;align-self:end;justify-self:end;width:28px;min-height:36px;padding:0;border:0;font-size:20px;color:#7c8981}
+.invoice-review #review-add-line{background:transparent;border:0;color:#256d57;font:600 13px/1.4 system-ui;padding:12px 0;min-height:42px}
+.invoice-review .review-confirm{font:12px/1.45 system-ui,sans-serif;margin:18px 0 10px;max-width:540px}
+.invoice-review #review-check{font:600 13px/1.4 system-ui;padding:11px 18px;min-height:42px;border-radius:4px;background:#256d57}
+.invoice-review .extraction-record{margin-top:22px}
+.invoice-review .source-warnings>summary{font-size:12px}
+.invoice-review .review-fields small{font-size:10px}
+@media(max-width:1100px){
+ .invoice-review .review-line{grid-template-columns:minmax(0,1.8fr) repeat(3,minmax(56px,.7fr)) 28px}
+ .invoice-review .review-unit{grid-column:1/-1;max-width:170px;display:grid}
+ .invoice-review .review-line:focus-within .review-unit{display:grid}
+}
+@media(max-width:760px){
+ .invoice-document-head{gap:16px;grid-template-columns:minmax(0,1fr) 130px;padding-bottom:16px}
+ .invoice-review .review-editor>summary{font-size:24px;padding-bottom:18px}
+ .invoice-review .review-result .review-totals{font-size:26px}
+ .invoice-review .review-terms-row{gap:12px;grid-template-columns:1.15fr .8fr;margin:16px 0}
+ .invoice-review .review-paid-field{grid-column:1/-1;max-width:180px}
+ .invoice-review .review-line{grid-template-columns:repeat(3,minmax(0,1fr)) 28px;gap:10px 8px;padding:14px 0}
+ .invoice-review .review-line .review-description{grid-column:1/-1}
+ .invoice-review .review-line .review-unit{grid-column:1/4;display:grid;max-width:none}
+ .invoice-review .review-line .review-remove{grid-column:4;grid-row:3}
+ .invoice-review .review-fields input,.invoice-review .review-fields select,.invoice-review .review-line input,.invoice-review .review-line select{font-size:16px}
+ .invoice-review .review-confirm{font-size:13px}
+ .invoice-review .review-result{min-height:0}
+}
+
+.invoice-document-head>.review-result{grid-column:2;grid-row:1}.invoice-document-head>.review-client-fields{grid-column:1;grid-row:1}.invoice-review .review-terms-row>.review-payment-terms{display:contents}
+
+
+.document-recipient-issue {
+  margin: 14px 0 0;
+  max-width: 32ch;
+  color: #973b28;
+  font: 13px/1.45 "IBM Plex Sans", sans-serif;
+}
+
+.invoice-review .review-note-fields{grid-template-columns:1fr;margin:16px 0}
+.invoice-review .review-note-fields textarea{width:100%;min-width:0;resize:vertical;border:1px solid #d6dfda;border-radius:3px;padding:10px 12px;background:#fff;color:#172f2d;font:14px/1.5 system-ui,sans-serif}
+.invoice-review .review-note-fields textarea:focus{border-color:#2b7561;outline:2px solid #c9e5d9;outline-offset:1px}
+.document-note{margin-top:20px;border-top:1px solid #dbe3de;padding-top:14px}
+.document-note>div{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.document-note .document-kicker{margin:0}
+.document-note .button{min-height:36px;padding:6px 0;font-size:12px}
+.document-note-text{margin:4px 0 14px;white-space:pre-wrap;overflow-wrap:anywhere;color:#203c39;font:14px/1.55 system-ui,sans-serif}
+.document-note-text .source-highlight{white-space:pre-wrap;text-align:left;max-width:100%;overflow-wrap:anywhere}
+@media(max-width:760px){.invoice-review .review-note-fields textarea{font-size:16px}}

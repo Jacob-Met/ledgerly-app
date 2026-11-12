@@ -1,0 +1,42 @@
+{
+  "source": "From: Bennett Cole <bennett@larkspur.example>\nBill to: Larkspur Studio <accounts@larkspur.example>\nPlease bill the three half-day editing sessions at GBP 225 each, plus twelve image touch-ups at GBP 8 each.\nThere's also a fixed GBP 18 transfer fee for the final files.\nPayment is due 14 days after the invoice date.",
+  "origin": "Retained original .4 Rules omission in downloads/v0.2.3-client-context.4/bennett/result.json; original_issues copied unchanged. Empty-work fields retain that prior proposal for review regression testing.",
+  "analysis": {
+    "line_items": [],
+    "currency": null,
+    "total": "0",
+    "due_days": 30,
+    "issues": [
+      {
+        "field": "client_email",
+        "severity": "info",
+        "message": "Using the explicit bill-to or invoice delivery instruction instead of the request sender."
+      },
+      {
+        "field": "line_items",
+        "severity": "error",
+        "message": "A source amount was not included in the invoice; review it before drafting: 'Please bill the three half-day editing sessions at GBP 225 each, plus twelve image touch-ups at GBP 8 each.'"
+      },
+      {
+        "field": "line_items",
+        "severity": "error",
+        "message": "A source amount was not included in the invoice; review it before drafting: \"There's also a fixed GBP 18 transfer fee for the final files.\""
+      },
+      {
+        "field": "due_days",
+        "severity": "warning",
+        "message": "No payment terms found; defaulted to Net 30."
+      },
+      {
+        "field": "line_items",
+        "severity": "error",
+        "message": "No priced line items found."
+      },
+      {
+        "field": "currency",
+        "severity": "error",
+        "message": "Invoice currency is required."
+      }
+    ]
+  }
+}

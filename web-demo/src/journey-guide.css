@@ -1,0 +1,27 @@
+/* Next action is a working navigation control, not an explainer card. */
+#journey-guide.journey-guide{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;
+  max-width:1216px;margin:0 auto 18px;padding:11px 15px;
+  background:#fff;border:1px solid var(--line);border-left:3px solid var(--ink);
+  box-shadow:none;border-radius:1px;color:var(--ink);
+}
+#journey-guide .journey-message{display:flex;align-items:baseline;gap:14px;min-width:0}
+#journey-guide .journey-count{flex:0 0 auto;display:block;color:var(--muted);font:500 10px/1.4 var(--mono);letter-spacing:.05em}
+#journey-guide [data-journey-heading]{flex:0 0 auto;min-width:0;font:600 14px/1.35 var(--sans);letter-spacing:-.01em}
+#journey-guide [data-journey-detail]{min-width:0;margin:0;color:var(--muted);font:400 12px/1.35 var(--sans);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#journey-guide [data-journey-action]{
+  flex:0 0 auto;max-width:none;min-height:38px;padding:9px 13px;
+  border:1px solid var(--ink);border-radius:2px;white-space:nowrap;
+  font:500 12px/1.25 var(--sans);color:var(--ink);background:#fff;text-align:center
+}
+#journey-guide [data-journey-action]:hover{background:var(--ink);color:#fff}
+#journey-guide [data-journey-action]:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+#journey-guide [data-journey-action]:disabled{opacity:.45}
+@media(max-width:760px){
+  #journey-guide.journey-guide{gap:9px;margin:0 auto 12px;padding:7px 10px;grid-template-columns:minmax(0,1fr) auto}
+  #journey-guide .journey-message{gap:6px;align-items:flex-start;flex-direction:column}
+  #journey-guide [data-journey-heading]{font-size:12px}
+  #journey-guide [data-journey-detail]{display:none}
+  #journey-guide [data-journey-action]{min-height:36px;max-width:145px;padding:7px 10px;font-size:11px;white-space:normal}
+}
+@media(max-width:360px){#journey-guide .journey-count{display:none}}

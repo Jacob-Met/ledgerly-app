@@ -1,0 +1,32 @@
+{
+  "source": "From: Elena Ward <elena@northlake.example>\nBill to: Northlake Studio <accounts@northlake.example>\nThe completed work was two 90-minute planning workshops at EUR 140 per workshop and five artwork files at EUR 25 each.\nPlease add the fixed EUR 35 courier charge.\nThe follow-up call was complimentary.\nPayment terms: Net 21.\nThanks,\nElena",
+  "expected": {
+    "recipient": "accounts@northlake.example",
+    "client": "Northlake Studio",
+    "currency": "EUR",
+    "items": [
+      {
+        "description": "90-minute planning workshops",
+        "quantity": 2,
+        "unit_price": 140,
+        "unit_semantics": "counted workshops, not hours or minutes"
+      },
+      {
+        "description": "artwork files",
+        "quantity": 5,
+        "unit_price": 25,
+        "unit_semantics": "counted files"
+      },
+      {
+        "description": "courier charge",
+        "quantity": 1,
+        "unit_price": 35
+      }
+    ],
+    "total": 440,
+    "due_days": 21,
+    "excluded": "complimentary follow-up call"
+  },
+  "protocol": "One first native AI action on published workspace.15, actual existing Qwen2.5:7b service, unchanged90-second request bound. Freeze before either Rules or model. Record full request,response/failure,tokens,latency,Rules baseline,all browser fields and zero provider effects before explicit check/CREATE. No retry or warmup. Continue through human correction if first pass fails; preserve original outcome.",
+  "frozen_at": "2026-11-11T15:03:18.366454+00:00"
+}

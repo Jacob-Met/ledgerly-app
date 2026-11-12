@@ -1,0 +1,1 @@
+IBM Plex Sans and IBM Plex Mono are self-hosted from Fontsource packages 5.3.0. The included Latin WOFF2 files are licensed under the SIL Open Font License; both original license files are included here. Source: https://github.com/IBM/plex and https://github.com/fontsource/fontsource.

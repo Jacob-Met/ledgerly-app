@@ -1,0 +1,35 @@
+.draft-correction{width:min(680px,calc(100vw - 32px));max-height:calc(100dvh - 32px);padding:0;overflow:hidden;border:1px solid #b7bbc2;border-radius:3px;background:#fff;color:#20242b}
+.draft-correction::backdrop{background:#18212a88}
+.draft-correction form{display:grid;grid-template-rows:auto minmax(0,1fr) auto;height:min(840px,calc(100dvh - 36px));margin:0}
+.draft-correction header{padding:18px 24px 14px;border-bottom:1px solid #d9dce2}
+.draft-correction h2{font-size:24px;line-height:1.2;margin:4px 0 8px}
+.draft-correction header p{margin:0}
+.draft-correction .correction-reference{font-size:13px;color:#626b7a}
+.correction-fields{overflow:auto;overscroll-behavior:contain;padding:4px 24px 16px;scroll-padding:16px}
+.draft-correction fieldset{border:1px solid #c6cbd3;padding:14px;margin:16px 0}
+.draft-correction legend{font-size:14px;font-weight:600;padding:0 5px}
+.draft-correction label{display:grid;gap:6px;font-size:14px}
+.draft-correction label+label{margin-top:10px}
+.draft-correction input:not([type=checkbox]),.draft-correction select,.draft-correction textarea{width:100%;min-width:0;box-sizing:border-box;padding:10px;font:inherit;border:1px solid #8993a2;border-radius:2px;background:#fff}
+.correction-values{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.correction-values label+label{margin-top:0}
+.correction-values label:last-child{grid-column:1/-1}
+.correction-actions{padding:14px 24px 18px;border-top:1px solid #d9dce2;background:#fff}
+.draft-correction .correction-confirm{display:flex;align-items:flex-start;gap:10px}
+.correction-error{color:#922d28;margin:8px 0}
+.correction-error:empty{display:none}
+.draft-correction .button-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+@media(max-width:480px){
+ .draft-correction{width:calc(100vw - 16px);max-height:calc(100dvh - 16px)}
+ .draft-correction form{height:calc(100dvh - 20px)}
+ .draft-correction header{padding:14px 16px 12px}
+ .draft-correction h2{font-size:22px}
+ .correction-fields{padding:0 14px 14px}
+ .draft-correction fieldset{padding:10px}
+ .correction-actions{padding:12px 14px}
+ .draft-correction .button-row{gap:8px}
+}
+
+.draft-correction textarea{resize:vertical;min-height:84px;line-height:1.5}
+
+.draft-correction header .correction-resumed{margin-top:10px;font-size:13px;color:#574700;line-height:1.4}

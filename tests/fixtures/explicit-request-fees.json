@@ -1,0 +1,282 @@
+{
+  "origin": "Existing frozen prospective compact-contract sources; reused only for ordinary Rules regression. No new inference.",
+  "cases": [
+    {
+      "id": "boreal",
+      "source": "From: Ada <ada@boreal.example>\nBill to: Boreal Studio <accounts@boreal.example>\nInvoice five display panels at GBP 64 per panel.\nThree hours of subtitle cleanup at GBP 36 per hour.\nThe agreed courier fee is GBP 19.\nThe agreed invoice total is GBP 447.\nNet 21.\n",
+      "expected": {
+        "client_name": "Boreal Studio",
+        "client_email": "accounts@boreal.example",
+        "currency": "GBP",
+        "due_days": 21,
+        "due_date": null,
+        "amount_paid": "0",
+        "total": "447",
+        "items": [
+          {
+            "description_any": [
+              "display",
+              "panel"
+            ],
+            "qty": "5",
+            "unit_price": "64",
+            "unit_allowed": [
+              null,
+              "panel",
+              "panels"
+            ]
+          },
+          {
+            "description_any": [
+              "subtitle",
+              "cleanup"
+            ],
+            "qty": "3",
+            "unit_price": "36",
+            "unit_allowed": [
+              "hour",
+              "hours",
+              "hr",
+              "hrs"
+            ]
+          },
+          {
+            "description_any": [
+              "courier"
+            ],
+            "qty": "1",
+            "unit_price": "19",
+            "unit_allowed": [
+              null,
+              "fee",
+              "flat fee",
+              "item",
+              "courier"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "valence",
+      "source": "From: Rosa <rosa@valence.example>\nBill to: Valence and Sons <billing@valence.example>\nTwo site visits at USD 175 per visit.\nThe agreed permit fee is USD 52.\nThe agreed reference photograph pack is a flat fee of USD 45.\nPayment is due on 2026-12-04.\n",
+      "expected": {
+        "client_name": "Valence and Sons",
+        "client_email": "billing@valence.example",
+        "currency": "USD",
+        "due_days": null,
+        "due_date": "2026-12-04",
+        "amount_paid": "0",
+        "total": "447",
+        "items": [
+          {
+            "description_any": [
+              "site",
+              "visit"
+            ],
+            "qty": "2",
+            "unit_price": "175",
+            "unit_allowed": [
+              null,
+              "visit",
+              "visits"
+            ]
+          },
+          {
+            "description_any": [
+              "permit"
+            ],
+            "qty": "1",
+            "unit_price": "52",
+            "unit_allowed": [
+              null,
+              "fee",
+              "flat fee",
+              "item"
+            ]
+          },
+          {
+            "description_any": [
+              "photograph",
+              "photo",
+              "reference"
+            ],
+            "qty": "1",
+            "unit_price": "45",
+            "unit_allowed": [
+              null,
+              "fee",
+              "flat fee",
+              "item",
+              "pack"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "maple",
+      "source": "From: Dylan <dylan@maple.example>\nBill to: Maple Community <accounts@maple.example>\nThree archive exports at CAD 47.50 per export.\nSix hours of label cleanup at CAD 26.00 per hour.\nThe agreed flat setup fee is CAD 11.50.\nDeposit paid: CAD 80.\nNet 14.\n",
+      "expected": {
+        "client_name": "Maple Community",
+        "client_email": "accounts@maple.example",
+        "currency": "CAD",
+        "due_days": 14,
+        "due_date": null,
+        "amount_paid": "80",
+        "total": "310.00",
+        "items": [
+          {
+            "description_any": [
+              "archive",
+              "export"
+            ],
+            "qty": "3",
+            "unit_price": "47.50",
+            "unit_allowed": [
+              null,
+              "export",
+              "exports"
+            ]
+          },
+          {
+            "description_any": [
+              "label",
+              "cleanup"
+            ],
+            "qty": "6",
+            "unit_price": "26.00",
+            "unit_allowed": [
+              "hour",
+              "hours",
+              "hr",
+              "hrs"
+            ]
+          },
+          {
+            "description_any": [
+              "setup"
+            ],
+            "qty": "1",
+            "unit_price": "11.50",
+            "unit_allowed": [
+              null,
+              "fee",
+              "flat fee",
+              "item"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "juniper",
+      "source": "From: Oona <editor@juniper.example>\nBill to: Juniper Books <accounts@juniper.example>\nSeven chapter proofs at EUR 35 per chapter.\nThe agreed cover layout fee is EUR 45.\nThe agreed postage fee is EUR 12.\nNet 7.\n> Earlier estimate: eight chapters for EUR 280; cover work still unconfirmed.\n",
+      "expected": {
+        "client_name": "Juniper Books",
+        "client_email": "accounts@juniper.example",
+        "currency": "EUR",
+        "due_days": 7,
+        "due_date": null,
+        "amount_paid": "0",
+        "total": "302",
+        "items": [
+          {
+            "description_any": [
+              "chapter",
+              "proof"
+            ],
+            "qty": "7",
+            "unit_price": "35",
+            "unit_allowed": [
+              null,
+              "chapter",
+              "chapters"
+            ]
+          },
+          {
+            "description_any": [
+              "cover",
+              "layout"
+            ],
+            "qty": "1",
+            "unit_price": "45",
+            "unit_allowed": [
+              null,
+              "fee",
+              "flat fee",
+              "item"
+            ]
+          },
+          {
+            "description_any": [
+              "postage"
+            ],
+            "qty": "1",
+            "unit_price": "12",
+            "unit_allowed": [
+              null,
+              "fee",
+              "flat fee",
+              "item"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kestrel",
+      "source": "From: Ren <ren@kestrel.example>\nBill to: Kestrel Labs <finance@kestrel.example>\nNine dataset transfers at JPY 1600 per transfer.\nThe agreed handling fee is JPY 1800.\nThe agreed delivery fee is JPY 1200.\nPayment is due on receipt.\n",
+      "expected": {
+        "client_name": "Kestrel Labs",
+        "client_email": "finance@kestrel.example",
+        "currency": "JPY",
+        "due_days": 0,
+        "due_date": null,
+        "amount_paid": "0",
+        "total": "17400",
+        "items": [
+          {
+            "description_any": [
+              "dataset",
+              "transfer"
+            ],
+            "qty": "9",
+            "unit_price": "1600",
+            "unit_allowed": [
+              null,
+              "transfer",
+              "transfers"
+            ]
+          },
+          {
+            "description_any": [
+              "handling"
+            ],
+            "qty": "1",
+            "unit_price": "1800",
+            "unit_allowed": [
+              null,
+              "fee",
+              "flat fee",
+              "item"
+            ]
+          },
+          {
+            "description_any": [
+              "delivery"
+            ],
+            "qty": "1",
+            "unit_price": "1200",
+            "unit_allowed": [
+              null,
+              "fee",
+              "flat fee",
+              "item"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
