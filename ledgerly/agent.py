@@ -664,8 +664,47 @@ class Agent:
                         del breakdown["item_total"]
                     if not breakdown:
                         del amount["breakdown"]
+                if "breakdown" in amount:
+                    # The live Sandbox echoes zero-valued discount and tax
+                    # summaries on every draft. A zero adjustment changes
+                    # nothing; any non-zero one stays visible to comparison.
+                    def drop_zero(node: Any) -> Any:
+                        if not isinstance(node, dict):
+                            return node
+                        if set(node) == {"currency_code", "value"}:
+                            return None if matches_amount(node, Decimal(0)) else node
+                        kept = {key: value for key, value in
+                                ((key, drop_zero(value)) for key, value in node.items())
+                                if value is not None and value != {}}
+                        return kept
+                    amount["breakdown"] = drop_zero(amount["breakdown"])
+                    if not amount["breakdown"]:
+                        del amount["breakdown"]
                 if not amount:
                     del content["amount"]
+                # Read-only facts and account defaults the live Sandbox adds to a
+                # fresh draft. Each is dropped only at its inert default value, so
+                # a changed setting still fails the comparison.
+                for section, defaults in (
+                        ("configuration", {"allow_only_pay_by_bank": False, "allow_vba_payments": False,
+                                           "save_item_for_future": True}),
+                        ("detail", {"archived": False, "group_draft": False, "viewed_by_recipient": False,
+                                    "category_code": "SHIPPABLE"})):
+                    for key, default in defaults.items():
+                        if content[section].get(key) == default and type(content[section].get(key)) is type(default):
+                            del content[section][key]
+                content["configuration"].pop("template_id", None)  # the account's default template
+                if content.get("settings") == {}:
+                    del content["settings"]
+                if content.get("unilateral") is False:
+                    del content["unilateral"]
+                # PayPal derives full_name from the names that were sent.
+                for party in [content["invoicer"]] + [r.get("billing_info", {}) for r in content["primary_recipients"]
+                                                      if isinstance(r, dict)]:
+                    if isinstance(party.get("name"), dict):
+                        party["name"].pop("full_name", None)
+                        if not party["name"]:
+                            del party["name"]
                 for key, aggregate in (("payments", "paid_amount"), ("refunds", "refund_amount")):
                     if key not in content:
                         continue
@@ -679,6 +718,9 @@ class Agent:
                     if not matches_amount(content["gratuity"], Decimal(0)):
                         raise ValueError("provider draft already has a gratuity")
                     del content["gratuity"]
+            # "No partial payment" is the provider default and is omitted from its reads.
+            if content["configuration"].get("partial_payment") == {"allow_partial_payment": False}:
+                del content["configuration"]["partial_payment"]
             if content.get("additional_recipients") == []:
                 del content["additional_recipients"]
             return json.dumps(content, sort_keys=True, separators=(",", ":"), allow_nan=False)
